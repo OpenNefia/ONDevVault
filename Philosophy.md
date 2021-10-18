@@ -44,7 +44,7 @@ Take the act of adding a new potion to the game. Imagine that potions and other 
 
 Potions would be able to specify numerical power levels for the spell effects they trigger. This would allow for the creation of healing potions with the same base effects on the player, but different magnitudes of the effect based on power.
 
-Adding a new potion with a stronger power level shouldn't require the modder to download 20GB worth of .NET toolchains, go through the arduous process of setting up a development environment on their box, learn a programming language, compile the thing, and then finally get into the game to see their work.
+Adding a new potion with a stronger power level shouldn't require the modder to download 20GB worth of .NET toolchains, go through the arduous process of setting up a development environment on their box, learn a programming language, write up and debug a C# mod, compile the thing, and then finally get into the game to see their work.
 
 The less coding that is necessary to do something as basic as changing the numerical strength of a potion, the better. Preferably, *no* coding should be necessary to accomplish such a change.
 
