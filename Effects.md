@@ -68,7 +68,7 @@ public class LineMagicEffect : IEffect
 	
 	public LineMagicEffect(Animation animation, Effect innerEffect)
 	{
-	    this.Animation = animation;
+		this.Animation = animation;
 		this.InnerEffect = innerEffect;
 	}
 	
