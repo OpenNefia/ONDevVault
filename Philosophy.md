@@ -36,15 +36,15 @@ There are a lot of things you can mod with ON-LÖVE's current design, so that is
 
 My initial worry was that I didn't know at the time what OpenNefia would look like in its Lua incarnation, so I opted for pushing excessively into the extensibility direction, if only to get a sense of the specific kinds of extensibility I was wanting from the perspective of a modder. In the beginning, I was not confident that I could produce a design that would be capable of future extensibility. I managed to prove myself wrong, but in the process I produced a massive wad of Lua that doesn't lend itself well to a future in which people just want to play modded Elona without their save becoming unrecoverable.
 
-And recent developments in language design have meant that it is possible to use statically typed languages without having to give up on the juicy introspection features that a dynamic language like Lua provides. Lua is ON-LÖVE's Achilles' heel. It is an excellent language for what it intends to do, but for the ultimate goal of shipping OpenNefia as a stable and collaborative modding effort, writing the *entire game* in it it wasn't the right choice.
+And recent developments in language design have meant that it is possible to use statically typed languages without having to give up on all of the juicy introspection features that a dynamic language like Lua provides. Lua is ON-LÖVE's Achilles' heel. It is an excellent language for what it intends to do, but for the ultimate goal of shipping OpenNefia as a stable and collaborative modding effort, writing the *entire game* in it wasn't the right choice.
 
 ## The simple things should be easy. The complex things should be possible.
 
 Take the act of adding a new potion to the game. Imagine that potions and other items are specified declaratively through XML. Adding a new potion should be as easy as copying one of the earlier declarations and putting it in a new mod.
 
-Potions would be able to specify numerical power levels for the spell effects they trigger. This allows the creation of healing potions with the same base effects on the player, but different magnitudes of the effect based on power.
+Potions would be able to specify numerical power levels for the spell effects they trigger. This would allow for the creation of healing potions with the same base effects on the player, but different magnitudes of the effect based on power.
 
-Adding a new potion with a stronger power level shouldn't require the modder to download 20GB worth of .NET toolchain and learn a programming language, go through the arduous process of setting up a development environment on their box, compiling the thing, and then finally going into the game to see their work.
+Adding a new potion with a stronger power level shouldn't require the modder to download 20GB worth of .NET toolchains, go through the arduous process of setting up a development environment on their box, learn a programming language, compile the thing, and then finally get into the game to see their work.
 
 The less coding that is necessary to do something as basic as changing the numerical strength of a potion, the better. Preferably, *no* coding should be necessary to accomplish such a change.
 
