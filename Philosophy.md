@@ -1,4 +1,4 @@
-## Extensibility when necessary.
+## Extensibility only when necessary.
 
 One of the core tenants of [[OpenNefia-LÖVE]] was to make everything as extensible as possible. No real effort was put into having a system that can be maintained by multiple people for years on end.
 
@@ -8,7 +8,7 @@ That is the situation I'm foreseeing with ON-LÖVE.
 
 With too much extensibility, the problem is that there is no limit to the number of ways people can break things.
 
-As a person who is proficient at programming and enjoys building a system by oneself, alone, in a sterile environment, this makes ON-LÖVE a boon. I originally wanted a version of Elona you could program like Emacs. That meant having runtime reloading of nearly the entire codebase, introspection features for running the entire game detached from a renderer, a modicrum of intricate APIs to build entirely new systems on top of, and so on.
+As a person who is proficient at programming and enjoys building a system by oneself, alone, in a sterile environment, this makes ON-LÖVE a boon. I originally wanted a version of Elona you could program like Emacs. That meant having runtime reloading of nearly the entire codebase, introspection features for running the entire game detached from a renderer, a large number of intricate APIs to build entirely new systems on top of, and so on.
 
 It was a fun experiment, and the development of ON-LÖVE has become the most personally engaging activity I've ever partaken in.
 
@@ -22,11 +22,15 @@ And every time something breaks, it is going to fall onto the shoulders of whoev
 
 For a game that you can potentially log hundreds of hours into in a single save, a single issue arising from the near-unparalleled extensibility that ON-LÖVE offers has the potential to be devastating.
 
-Game-as-Emacs is an interesting approach to game development. It is also a fun approach. But Game-as-Emacs will not allow OpenNefia to become a properly moddable version of Elona that *everyone* can approach, not just a programmer in their solitude with a bottomless passion to build new things. Emacs as a philosophy mostly works out because the people who buy into that philosophy the most are solitary programmers that like tinkering with things for the take of tinkering with them, in addition to reaping the benefits the tinkering produces, and *also* have the capability to program themselves out of a hole if things become unstable. Using Emacs without programming anything is missing out on a lot of its power, but it is not necessarily the case that people who enjoy modded games ought to be programmers with deep knowledge of the system to not have their game fall apart. And even as a programmer, the worries about forgetting what you named an object property and things breaking because of that are persistent and unlikely to ever go away.
+Game-as-Emacs is an interesting approach to game development. It is also a fun approach. But Game-as-Emacs will not allow OpenNefia to become a properly moddable version of Elona that *everyone* can approach, not just a programmer in their solitude with a bottomless passion to build new things.
+
+Emacs as a philosophy mostly works out because the people who buy into that philosophy the most are solitary programmers that like tinkering with things for the take of tinkering with them, in addition to reaping the benefits the tinkering produces, and *also* have the capability to program themselves out of a hole if things become unstable. Using Emacs without programming anything is missing out on a lot of its power, but it is not necessarily the case that people who enjoy modded games ought to be programmers with deep knowledge of the system to not have their game fall apart.
+
+And even as a programmer, the worries about forgetting what you named an object property and things breaking because of that are persistent and unlikely to ever go away.
 
 ON-LÖVE is extensible to a fault.
 
-The point is this: because OpenNefia's new codebase is going to be produced with the express inention of ease of maintainability, the ability to add frequently requested interfaces for extensibility at a later time should be easy, even if the implementation language isn't quite as dynamic as Lua. Code quality and a decent enough design are what allows us to not have to worry about that ideal of modding the things we want to becoming unattainable, neither of which 1.22 had in the beginning.
+The point is this: because OpenNefia's new codebase is going to be produced with the express intention of ease of maintainability, the ability to add frequently requested interfaces for extensibility at a later time should be easy, even if the implementation language isn't quite as dynamic as Lua. Code quality and a decent enough design are what allows us to not have to worry about that ideal of modding the things we want to becoming unattainable, neither of which 1.22 had in the beginning.
 
 There are a lot of things you can mod with ON-LÖVE's current design, so that isn't an issue. Taking that design and stabilizing it is the next step.
 
