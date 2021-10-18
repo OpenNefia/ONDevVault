@@ -62,7 +62,7 @@ An Effect defined for the purpose of something like magic should be easily reusa
 ```csharp
 public class LineMagicEffect : IEffect
 {
-    public Animation Animation;
+	public Animation Animation;
 	
 	public Effect InnerEffect;
 	
