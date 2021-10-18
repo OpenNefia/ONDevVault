@@ -25,7 +25,8 @@ namespace OpenNefia.Core.UI.Layer
             TextFromFn1 = new UiTextFn1(this.FontText);
             TextFromFn2 = new UiTextFn2(this.FontText);
             
-            if ( Rand.OneIn(2) ) {
+            if (Rand.OneIn(2)) 
+            {
                 // If a custom namespace is set in advance, UILocalize becomes a no-op.
                 TextFromString.LocaleKey = "CustomNamespace.Foo.Scut";
             }

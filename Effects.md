@@ -83,7 +83,7 @@ public class LineMagicEffect : IEffect
 			this.InnerEffect.Apply(params);
 		}
         
-        return EffectResult.Success;
+		return EffectResult.Success;
 	}
 }
 ```
