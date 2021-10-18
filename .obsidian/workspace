@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Philosophy.md",
+            "file": "Effects.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Philosophy.md",
+                "file": "Effects.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,10 +88,10 @@
   },
   "active": "9202173222245831",
   "lastOpenFiles": [
-    "Philosophy.md",
-    "OpenNefia-LÖVE.md",
-    "Map Objects.md",
     "Effects.md",
+    "OpenNefia-LÖVE.md",
+    "Philosophy.md",
+    "Map Objects.md",
     "Buffs and Hexes.md",
     "Untitled.md",
     "Spells.md",

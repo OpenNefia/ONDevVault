@@ -62,7 +62,27 @@ An Effect defined for the purpose of something like magic should be easily reusa
 ```csharp
 public class LineMagicEffect : BaseEffect 
 {
-    
+    public Animation Animation;
+	
+	public Effect InnerEffect;
+	
+	public LineMagicEffect(Animation animation, Effect innerEffect)
+	{
+	    this.Animation = animation;
+		this.InnerEffect = innerEffect;
+	}
+	
+	public EffectResult Apply(EffectParams params)
+	{
+	    Animation.Play(params.Source, params.Target);
+		
+		foreach (var (x, y) in Pos.EnumerateLine(params.Source.X, params.Source.Y, params.X, params.Y)) {
+			params.X = x;
+			params.Y = y;
+			params.Target = Chara.At(x, y).FirstOrDefault()
+			this.InnerEffect.Apply(params);
+		}
+	}
 }
 ```
 
