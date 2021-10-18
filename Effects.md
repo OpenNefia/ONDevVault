@@ -60,7 +60,7 @@ Effects would be used to model things like the instant effects of spells and the
 An Effect defined for the purpose of something like magic should be easily reusable for a completely different purpose, such as when using an item, or behavior that can be added to a trap, with minimal or no code changes.
 
 ```csharp
-public class LineMagicEffect : BaseEffect 
+public class LineMagicEffect : IEffect
 {
     public Animation Animation;
 	
@@ -82,6 +82,8 @@ public class LineMagicEffect : BaseEffect
 			params.Target = Chara.At(x, y).FirstOrDefault()
 			this.InnerEffect.Apply(params);
 		}
+        
+        return EffectResult.Success;
 	}
 }
 ```

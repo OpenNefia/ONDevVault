@@ -48,7 +48,7 @@ If you have someone who knows how to translate English into Korean, having them 
 
 Translators shouldn't have to learn programming just to be able to contribute to the community.
 
-Now imagine you want to add a new potion, but this time the power level is not a constant number. Instead you want it to vary based on something related to the player character, like their current hitpoints or hunger. The hungrier or more damaged they are, the stronger the effect of the potion.
+Now for the other case: Imagine you want to add a new potion, but this time the power level is not a constant number. Instead you want it to vary based on something related to the player character, like their current hitpoints or hunger. The hungrier or closer to death they are, the stronger the effect of the potion.
 
 This is not something that can be accomplished with XML alone. But it's wrong to think of this as a limitation of *XML* because it's declarative. The inability to allow for this sort of behavior would be a limitation of the *engine*.
 
@@ -58,13 +58,40 @@ This is where [[Effects]] would come in.
 
 Imagine the potion effect you want to scale triggers an Effect, like `HealingEffect`. This Effect would have an `Apply(source, target, item, power...)` method of some kind.
 
-To accomplish this special scaling, create a new `ScaledByHealthEffect` that is composed with `HealingEffect`. This scaled Effect would wrap an existing effect and call its `Apply()` method with the scaled power.
+To accomplish this special scaling, create a new `ScaledByHealthEffect` that is composed with `HealingEffect`. This scaled Effect would wrap the existing effect and call its `Apply()` method with the scaled power.
+
+```csharp
+public class ScaledByHealthEffect : IEffect 
+{
+	public Effect InnerEffect;
+	
+	public ScaledByHealthEffect(Effect innerEffect)
+	{
+		this.InnerEffect = innerEffect;
+	}
+    
+    public virtual int ApplyScaling(Chara target, int power) 
+    {
+        var newPower = power;
+
+        // Apply the scaling...
+
+        return newPower;
+    }
+	
+	public EffectResult Apply(EffectParams params)
+	{
+        params.Power = ApplyScaling(params.Target, params.Power);
+        return this.InnerEffect.Apply(params);
+	}
+}
+```
 
 If the original healing potion looks like this as a declaration:
 
 ```xml
 <ItemDef Id="PotionOfHealing">
-	<OnUseEffect Class="Core.Effect.HealingEffect">
+	<OnUseEffect Class="Core.HealingEffect">
 		<Power>100</Power>
 	</OnUseEffect>
 </ItemDef>
@@ -74,12 +101,12 @@ Then the custom "scaled" version might look like this:
 
 ```xml
 <ItemDef Id="PotionOfHealingScaled">
-	<OnUseEffect Class="MyMod.Effect.ScaledByHealthEffect">
-		<InnerEffect Class="Core.Effect.HealingEffect">
+	<OnUseEffect Class="MyMod.ScaledByHealthEffect">
+		<InnerEffect Class="Core.HealingEffect">
 			<Power>100</Power>
 		</InnerEffect>
 	</OnUseEffect>
 </ItemDef>
 ```
 
-This is me getting sidetracked again, but the point is: Despite the overarching system operating at a declarative level, it is still possible to drop down into a code-driven, imperative approach if necessary. And the good thing is that other mods would be able to reuse this `ScaledByHealthEffect` if they really wanted to, without needing to write any more code.
+Ultimately, despite the overarching system operating at a declarative level, it is still possible to drop down into a code-driven, imperative approach if necessary. And the good thing is that other mods would be able to reuse this `ScaledByHealthEffect` if they really wanted to, without needing to write any more code.
