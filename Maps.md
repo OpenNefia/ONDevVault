@@ -11,4 +11,4 @@ local ok, map2 = Map.load(map_uid)
 assert(map1 == map2) -- fails
 ```
 
-In OpenNefia.NET, there will be some kind of store that will manage maps. Maps will not be saved or loaded individually anymore, only when they're being managed as part of a game save. A map can still be instantiated as a standalone object, but it cannot be set as the active map until the map storage is tracking it.
+In OpenNefia.NET, there will be some kind of global store that will manage maps. Maps will not be saved or loaded individually anymore, only when they're being managed as part of a game save. A map can still be instantiated as a standalone object, but it cannot be set as the active map until the map storage is tracking it.
