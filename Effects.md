@@ -88,3 +88,4 @@ public class LineMagicEffect : IEffect
 }
 ```
 
+An Effect would return a result of some kind. There probably can't be generic parameters because that makes the interface less flexible than what I'm imagining.

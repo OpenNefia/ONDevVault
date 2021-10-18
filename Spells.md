@@ -34,6 +34,24 @@ Spells may or may not implement the same exact interface as Effects. That would 
 
 There will always be a tradeoff between having the flexibility to define whatever custom parameters an Effect needs, and the pressing urge to impose requirements on how the Effect must be used.
 
+### Casting Results
+
+Another issue is how to resolve the "obvious" status of spells triggered by items.
+
+Certain spells will not reveal the item they're used with to the player in some circumstances. In [[Vanilla (1.22)|vanilla]] this is handled by setting a global named `obvious` to `true`.
+
+How is this going to work with Effects?
+
+I've already established that Effects are intended to be as generic as possible. The most they would return is an enum result indicating success or failure. That leaves mutating the effect parameters as the only viable option that doesn't use globals.
+
+I don't really like this, but don't see a way of handling it via the Effect interface if `IEffect` will not have a generic return value. The `obvious` calculation takes place inside the `Apply()` method, not inside a separate method that could be abstracted into an optional interface.
+
+Perhaps this could hinge on that enumeration value that is being returned. There could be a `Failed` or `Nonobvious` variant used for indicating the `obvious` state in a pure manner.
+
+Or, since this has to do with items specifically, there could be a flag you could set on an item, `WasRevealedAsObvious`, that would be exclusively used for this purpose. If it's set after a Spell was triggered and the item wasn't already identified, then the identification message and such would be displayed. This solves the problem, at the expense of having more mutable state. But it's a relatively clean solution. Calling an Effect's `Apply()` method is going to mutate all kinds of state anyway.
+
+This flag could also be a part of an [[Aspects|Aspect]] to support separation of concerns. There will *always* be people who want to add more mutable state to an object anyway. Mutable state is kind of the game if you're going with a language like C#.
+
 ## Casting Parameters
 
 Spells in vanilla Elona have a uniform interface for casting. When casting a spell, the following parameters have the potential to be used. This means that Spells *must* have these parameters available as instanced data or arguments to a `Cast()` method or similar.
