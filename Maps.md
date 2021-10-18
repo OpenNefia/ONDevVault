@@ -2,7 +2,7 @@
 
 A major problem with [[OpenNefia-LÖVE]]'s design was the fact that there was no central store for tracking loaded maps. This meant that a map loaded twice from disk would reference two separate copies of the same map, which became a headache when the same map needed updates in multiple places.
 
-See [issue 205](https://github.com/Ruin0x11/OpenNefia/issues/205).
+See [issue #205](https://github.com/Ruin0x11/OpenNefia/issues/205).
 
 ```lua
 local map_uid = 1
