@@ -26,7 +26,9 @@ Also, a select set of actions (Pickpocket, Riding, Cooking, etc.) *do* have a co
 
 ## Relation to Effects
 
-A major problem with Spells in regards to [[Effects]] is the hard requirement to quantify the power of each effect. When a spell is cast, certain parameters like its power level must be available to the spell logic. But Effects do not impose requirements on what data is passed to them besides the source and target [[Map Objects]], so how they are instantiated in relation to spells will need to be worked out.
+A major problem with Spells in regards to [[Effects]] is the hard requirement to quantify the power of each effect. When a spell is cast, certain parameters like its power level must be available to the spell logic. But as currently specified, Effects do not impose requirements on what data is passed to them besides the source and target [[Map Objects]], so how they are instantiated in relation to spells will need to be worked out.
+
+Perhaps the parameters that Spells define will become the same interface for `Effect.Apply(EffectParameters)`, because most interesting pieces of logic in Elona operate on the same kinds of objects: source and target parameters, source item, power, target location, alignment, etc.
 
 Spells may or may not implement the same exact interface as Effects. That would mean that any Spell could be used as an Effect as well, separate from its metadata for cost and range. This is a very powerful idea that is worth considering, especially since Spells are really just light wrappers around Effects to begin with.
 
@@ -36,12 +38,15 @@ There will always be a tradeoff between having the flexibility to define whateve
 
 Spells in vanilla Elona have a uniform interface for casting. When casting a spell, the following parameters have the potential to be used. This means that Spells *must* have these parameters available as instanced data or arguments to a `Cast()` method or similar.
 
+For simplicity, the `Apply()` function in the interface for [[Effects]] may just use these exact parameters for every kind of effect, to simplify interoperability. I am worried about performance in this case, but it's impossible to know for certain how efficient it will be until it is actually implemented and tested.
+
 - Target: Character the spell affects. This must be specified in all cases.
 - Source: Character casting or triggering the spell. If the spell is triggered from an item or trap, the Source will be the same as the Target.
 - Item: Item that triggered the spell effect, such as a potion, rod, material kit, or other usable item.
 - X: Target map X position. The map to be used is assumed to be the same as that of the Target.
 - Y: Target map Y position.
 - Power: Power level of the spell. This is a number value which scales with the level of the spell, action or item. It is meant to be interpreted in a freeform manner.
+- Curse State: The curse state of the item triggering the spell. Can be separate from the target item.
 - Triggered by: What triggered the spell. The known variants are:
 	+ Wand
 	+ Scroll
@@ -51,5 +56,3 @@ Spells in vanilla Elona have a uniform interface for casting. When casting a spe
 	+ Thrown potion
 	+ Spilt potion
 	+ Trap
-
-For simplicity, the `Apply()` function in the interface for [[Effects]] may just use these exact parameters for every kind of effect, to simplify interoperability. 

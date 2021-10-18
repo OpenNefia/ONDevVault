@@ -1,6 +1,6 @@
 Localizing user interface components should be easy.
 
-Classes in C# are organized in a hierarchical namespace layout. I am thinking of having [[UiLayer]] specify a set of string fields that hold localized text.
+Classes in C# are organized in a hierarchical namespace layout. I am thinking of having [[UiLayers]] specify a set of string fields that hold localized text.
 
 When the UiLayer is queried, that text should be filled in with the corresponding translations if they haven't been already.
 
@@ -64,7 +64,7 @@ namespace OpenNefia.Core.UI.Layer
 }
 ```
 
-Then there would be a corresponding translation file (Lua or XML) that would be namespaced under `OpenNefia.Core.Ui.Layer.TestLayer` with the translations to fill in.
+Then there would be a corresponding translation file (Lua or XML) that would be namespaced under `OpenNefia.Core.UI.Layer.TestLayer` with the translations to fill in.
 
 ```lua
 return {
