@@ -1,4 +1,4 @@
-Localizing user interface components should be easy from a modding standpoint.
+Localizing user interface components should be easy from a modding perspective.
 
 Classes in C# are organized in a hierarchical namespace layout. I am thinking of having [[UiLayers]] specify a set of string fields that hold localized text.
 
@@ -29,7 +29,7 @@ namespace OpenNefia.Core.UI.Layer
             
             if (Rand.OneIn(2)) 
             {
-                // If a custom namespace is set in advance, UILocalize becomes a no-op.
+                // If a custom locale key is set in advance, UILocalize will use it instead of the locale key it generates based on reflection.
                 TextFromString.LocaleKey = "CustomNamespace.Foo.Scut";
             }
         }
