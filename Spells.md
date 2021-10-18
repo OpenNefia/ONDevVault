@@ -50,7 +50,7 @@ Perhaps this could hinge on that enumeration value that is being returned. There
 
 Or, since this has to do with items specifically, there could be a flag you could set on an item, `WasRevealedAsObvious`, that would be exclusively used for this purpose. If it's set after a Spell was triggered and the item wasn't already identified, then the identification message and such would be displayed. This solves the problem, at the expense of having more mutable state. But it's a relatively clean solution. Calling an Effect's `Apply()` method is going to mutate all kinds of state anyway.
 
-This flag could also be a part of an [[Aspects|Aspect]] to support separation of concerns. There will *always* be people who want to add more mutable state to an object anyway. Mutable state is kind of the game if you're going with a language like C#.
+This flag could also be a part of an [[Aspects|Aspect]] to support separation of concerns. There will *always* be people who want to add more mutable state to an object, besides. Mutable state is kind of the game if you're going with a language like C#.
 
 ## Casting Parameters
 
