@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Effects.md",
+            "file": "UI Localization.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Effects.md",
+                "file": "UI Localization.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,15 +88,15 @@
   },
   "active": "9202173222245831",
   "lastOpenFiles": [
-    "Effects.md",
-    "OpenNefia-LÖVE.md",
-    "Philosophy.md",
-    "Map Objects.md",
-    "Buffs and Hexes.md",
+    "UI Localization.md",
+    "UiLayers.md",
     "Untitled.md",
+    "Philosophy.md",
+    "OpenNefia-LÖVE.md",
+    "Map Objects.md",
+    "Effects.md",
+    "Buffs and Hexes.md",
     "Spells.md",
-    "Stats.md",
-    "Stat.md",
-    "Untitled 1.md"
+    "Stats.md"
   ]
 }

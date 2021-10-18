@@ -28,7 +28,9 @@ ON-LÖVE is extensible to a fault.
 
 The point is this: because OpenNefia's new codebase is going to be produced with the express inention of ease of maintainability, the ability to add frequently requested interfaces for extensibility at a later time should be easy. Code quality and a decent enough design are what allows us to not have to worry about that ideal of modding the things we want to becoming unattainable, neither of which 1.22 had in the beginning.
 
-My initial worry was that I didn't know at the time what OpenNefia would look like in its Lua incarnation, so I opted for pushing excessively into the extensibility direction, if only to get a sense of the specific kinds of extensibility I was wanting as a humble modder. I was not confident that I could produce a design that would be capable of future extensibility. I managed to prove myself wrong, but in the process produced a massive wad of Lua that doesn't lend itself to the era in which people just want to play modded Elona without their save becoming unrecoverable.
+There are a lot of things you can mod with ON-LÖVE's current design, so that isn't an issue. Taking that design and stabilizing it is the next step.
+
+My initial worry was that I didn't know at the time what OpenNefia would look like in its Lua incarnation, so I opted for pushing excessively into the extensibility direction, if only to get a sense of the specific kinds of extensibility I was wanting as a humble modder. I was not confident that I could produce a design that would be capable of future extensibility. I managed to prove myself wrong, but in the process produced a massive wad of Lua that doesn't lend itself to an era in which people just want to play modded Elona without their save becoming unrecoverable.
 
 And recent developments in language design have meant that it is possible to use statically typed languages without having to give up on the juicy introspection features that a dynamic language like Lua provides. Lua is ON-LÖVE's Achilles' heel. It is an excellent language for what it intends to do, but for the ultimate goal of shipping OpenNefia as a stable and collaborative modding effort, writing the *entire game* in it it wasn't the right choice.
 
@@ -36,13 +38,13 @@ And recent developments in language design have meant that it is possible to use
 
 Take the act of adding a new potion to the game. Imagine that potions and other items are specified declaratively through XML. Adding a new potion should be as easy as copying one of the earlier declarations and putting it in a new mod.
 
-Potions would be able to specify power levels for the spell effects they trigger. This allows the creation of healing potions with the same base effects on the player, but different magnitudes of the effect based on power.
+Potions would be able to specify numerical power levels for the spell effects they trigger. This allows the creation of healing potions with the same base effects on the player, but different magnitudes of the effect based on power.
 
-Adding a new potion with a stronger power level shouldn't require the modder to download 20GB worth of .NET toolchain and learn a programming language, learning how to set up a development environment on their box, compiling, and then finally going into the game to see their work.
+Adding a new potion with a stronger power level shouldn't require the modder to download 20GB worth of .NET toolchain and learn a programming language, go through the arduous process of setting up a development environment on their box, compiling the thing, and then finally going into the game to see their work.
 
-The less coding is necessary to do something as basic as change the numerical strength of a potion, the better. Preferably, *no* coding should be necessary to accomplish such a change.
+The less coding that is necessary to do something as basic as changing the numerical strength of a potion, the better. Preferably, *no* coding should be necessary to accomplish such a change.
 
-If you have someone who knows how to translate English into Korean, having them add new localizations to existing items across various mods should not require the use of a compiler either.
+If you have someone who knows how to translate English into Korean, having them add new localizations to existing items across various mods should also be possible without the use of a compiler.
 
 Translators shouldn't have to learn programming just to be able to contribute to the community.
 
