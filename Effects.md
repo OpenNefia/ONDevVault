@@ -10,16 +10,16 @@ An Effect does not specify any hard requirements on instance data. An Effect can
 
 An Effect has two stages of use: construction, and application to entities.
 
-An Effect is intended to be constructed once by declaring it on a [[Def]] along with its named constructor parameters, then reusing it for multiple applications, to avoid unnecessary allocation. But if necessary, an Effect is also capable of being instantated elsewhere in the code for advanced use cases.
+An Effect is intended to be constructed once by declaring it on a [[Defs|Def]] along with its named constructor parameters, then reusing it for multiple applications, to avoid unnecessary allocation. But if necessary, an Effect is also capable of being instantated elsewhere in the code for advanced use cases.
 
 An Effect is capable of being instantiated through XML by giving its class name and the list of parameters to pass to its constructor. This may need to rely on runtime reflection and introspecting named parameters in the constructor.
 
 ```xml
 <ElementDef Id="Fire">
-	<OnDamageLocationEffect Class="Core.Effect.DamageFireEffect">
+	<OnDamageLocationEffect Class="Core.DamageFireEffect">
 		<Power>100</Power>
 	</OnDamageLocationEffect>
-	<OnDamageCharaEffect Class="Core.Effect.DamageElementalEffect">
+	<OnDamageCharaEffect Class="Core.DamageElementalEffect">
 		<Power>50</Power>
 		<Element>Core.Fire</Element>
 	</OnDamageCharaEffect>
@@ -30,23 +30,23 @@ An Effect is well-suited for composition with other Effects, by passing the chil
 
 ```xml
 <MagicDef Id="RandomBolt">
-	<OnCastEffect Class="Core.Effect.PickOneRandomly">
+	<OnCastEffect Class="Core.PickOneRandomly">
 		<Effects>
 			<li>
 				<Weight>3</Weight>
-				<Effect Class="Core.Effect.BoltMagicEffect">
+				<Effect Class="Core.BoltMagicEffect">
 					<Element>Core.Fire</Element>
 				</Effect>
 			</li>
 			<li>
 				<Weight>7</Weight>
-				<Effect Class="Core.Effect.BoltMagicEffect">
+				<Effect Class="Core.BoltMagicEffect">
 					<Element>Core.Cold</Element>
 				</Effect>
 			</li>
 			<li>
 				<Weight>5</Weight>
-				<Effect Class="Core.Effect.BoltMagicEffect">
+				<Effect Class="Core.BoltMagicEffect">
 					<Element>Core.Lightning</Element>
 				</Effect>
 			</li>
@@ -88,4 +88,4 @@ public class LineMagicEffect : IEffect
 }
 ```
 
-An Effect would return a result of some kind. There probably can't be generic parameters because that makes the interface less flexible than what I'm imagining.
+An Effect would return a result of some kind. There probably can't be generic parameters because that makes the interface less flexible than what I'm imagining. The result would probably be an enum indicating success or failure. There would need to be enough information for things like [[Spells]] to determine if a turn needs to be passed, or if control needs to be returned to the player.

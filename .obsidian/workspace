@@ -7,8 +7,11 @@
         "id": "9202173222245831",
         "type": "leaf",
         "state": {
-          "type": "graph",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "Effects.md",
+            "mode": "source"
+          }
         }
       }
     ],
@@ -65,6 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Effects.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -84,15 +88,15 @@
   },
   "active": "9202173222245831",
   "lastOpenFiles": [
-    "Spells.md",
     "Effects.md",
+    "Def.md",
+    "Map Objects.md",
+    "OpenNefia-LÖVE.md",
+    "Variants/Vanilla (1.22).md",
+    "Spells.md",
     "Buffs and Hexes.md",
     "UI Localization.md",
     "UiLayers.md",
-    "Stats.md",
-    "Philosophy.md",
-    "OpenNefia-LÖVE.md",
-    "Map Objects.md",
-    "UiLayer.md"
+    "Stats.md"
   ]
 }
