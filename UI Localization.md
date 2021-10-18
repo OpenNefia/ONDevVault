@@ -30,7 +30,7 @@ namespace OpenNefia.Core.UI.Layer
             if (Rand.OneIn(2)) 
             {
                 // If a custom locale key is set in advance, UILocalize will
-				// use it instead of the locale key it generates based on reflection.
+                // use it instead of the locale key it generates based on reflection.
                 TextFromString.LocaleKey = "CustomNamespace.Foo.Scut";
             }
         }
