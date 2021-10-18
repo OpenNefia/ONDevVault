@@ -78,7 +78,8 @@ return {
         TextFromFn2 = function(_1, _2_) return ("Args: %s %s") end,
     },
     
-    ["CustomNamespace.Foo"] = {
+    ["CustomNamespace.Foo"] = 
+	{
         Scut = "Scut!"
     },
     
