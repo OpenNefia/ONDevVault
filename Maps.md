@@ -12,3 +12,7 @@ assert(map1 == map2) -- fails
 ```
 
 In OpenNefia.NET, there will be some kind of global store that will manage maps. Maps will not be saved or loaded individually anymore, only when they're being managed as part of a game save. A map can still be instantiated as a standalone object, but it cannot be set as the active map until the map storage is tracking it.
+
+## Multiple Loaded Maps
+
+There would be some kind of "locking" mechanism to keep certain maps in memory, instead of having them closed out when transitioning between maps. The set of active map UIDs would be serialized as part of the save. This would allow two or more maps to be updated simultaneously.
