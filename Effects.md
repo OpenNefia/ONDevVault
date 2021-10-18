@@ -4,7 +4,7 @@ An Effect is the most minimal piece of logic that can be applied by a source obj
 
 An Effect is an abstraction that was not a part of 1.22's original engine design. It is a method of implementing composable game logic with its own benefits and drawbacks, and its adoption would significantly influence the design of several major engine components that require custom logic ([[Spells]], [[Buffs and Hexes]], item use effects...).
 
-An Effect has no identifiers, metadata, or anything else attached to it.
+An Effect does not require identifiers, metadata, or anything else to be attached to it.
 
 An Effect does not specify any hard requirements on instance data. An Effect can be implemented with no data needing to be passed to its constructor.
 
@@ -74,7 +74,7 @@ public class LineMagicEffect : BaseEffect
 	
 	public EffectResult Apply(EffectParams params)
 	{
-	    Animation.Play(params.Source, params.Target);
+		Animation.Play(params.Source, params.Target);
 		
 		foreach (var (x, y) in Pos.EnumerateLine(params.Source.X, params.Source.Y, params.X, params.Y)) {
 			params.X = x;

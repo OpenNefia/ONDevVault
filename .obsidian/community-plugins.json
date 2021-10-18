@@ -1,3 +1,5 @@
 [
-  "obsidian-codemirror-options"
+  "obsidian-codemirror-options",
+  "obsidian-code-copy",
+  "obsidian-git"
 ]
