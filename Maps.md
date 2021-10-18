@@ -15,4 +15,8 @@ In OpenNefia.NET, there will be some kind of global store that will manage maps.
 
 ## Multiple Loaded Maps
 
-There would be some kind of "locking" mechanism to keep certain maps in memory, instead of having them released automatically when transitioning between maps. The set of active map UIDs would be serialized as part of the save. This would allow stepping the turn sequences for more than one map simultaneously.
+There would be some kind of "locking" mechanism to keep certain maps in memory, instead of having them released automatically when transitioning between maps. The set of active map UIDs would be serialized as part of the save. This would allow stepping the turn sequence for more than one map simultaneously.
+
+To accomplish this there would be a `MapLock` that implements `IDisposable`, which would be freed in the finalizer when the containing object is garbage collected. When a tracked map has no `MapLock`s referencing it, that means it's safe to release from memory.
+
+`MapLocks` will also have to be serialized correctly for this to work.
