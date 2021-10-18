@@ -1,4 +1,4 @@
-Localizing user interface components should be easy.
+Localizing user interface components should be easy from a modding standpoint.
 
 Classes in C# are organized in a hierarchical namespace layout. I am thinking of having [[UiLayers]] specify a set of string fields that hold localized text.
 
