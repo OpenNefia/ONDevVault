@@ -4,6 +4,8 @@ Classes in C# are organized in a hierarchical namespace layout. I am thinking of
 
 When the UiLayer is queried, that text should be filled in with the corresponding translations if they haven't been already.
 
+Each element with `[UILocalize]` should implement an interface, `IUILocalizable`, that is passed the namespace/key for the translation and updates itself with the result from the localization store. This could be recursive, so you could have a localizable component with fields that also have `[UILocalize]` set on them.
+
 ```csharp
 namespace OpenNefia.Core.UI.Layer
 {
