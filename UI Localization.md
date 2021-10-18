@@ -79,7 +79,7 @@ return {
     },
     
     ["CustomNamespace.Foo"] = 
-	{
+    {
         Scut = "Scut!"
     },
     
