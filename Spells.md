@@ -11,7 +11,7 @@ Also, a select set of actions (Pickpocket, Riding, Cooking, etc.) *do* have a co
 - Effect: The [[Effects|Effect]] this spell causes when triggered. Spells could use a compositional Effect implementation to support running multiple Effects in sequence, randomly from a pool, or in any number of custom ways.
 - Type: Action/Spell. As mentioned above, if actions and spells aren't going to be separated.
 - Alignment: Positive/neutral/negative. Affects aggro when casting the spell on a neutral target.
-- Cost: Cost in MP or stamina to apply when using the spell/action, respectively. It may be worth splitting this into separate stamina and MP costs, instead of having them depend on the spell type. Or even better, having a `ISpellCost` interface for any sort of cost that can be checked against / paid.
+- Cost: Cost in MP or stamina to apply when using the spell/action, respectively. It may be worth splitting this into separate stamina and MP costs, instead of having them depend on the spell type. Or even better, having an `ISpellCost` interface for any sort of cost that can be checked against / paid. But then you lose the ability to easily add effects like "reduces spell MP cost".
 - Range: Range in tiles of the spell. Also affects AI targeting and spell usage.
 - Difficulty: Difficulty of triggering the spell.
 - Target Type: The target the spell affects when casting it.
