@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "UI Localization.md",
+            "file": "Maps.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "UI Localization.md",
+                "file": "Maps.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,13 +88,13 @@
   },
   "active": "9202173222245831",
   "lastOpenFiles": [
+    "Untitled.md",
     "UI Localization.md",
     "Spells.md",
     "Variants/Vanilla/Vanilla (1.22).md",
     "Variants/oomSEST/Titles.md",
     "Variants/oomSEST/oomSEST.md",
     "Variants/oomSEST/Untitled.md",
-    "Untitled.md",
     "Effects.md",
     "Map Objects.md",
     "Buffs and Hexes.md"
