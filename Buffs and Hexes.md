@@ -1,0 +1,1 @@
+Buffs and Hexes would wrap an [[Effects|Effect]] such that they can be identified by a BuffDef. This would allow testing the buff/hex for the ability to be dispelled, as well as calculating its power when adding it.
