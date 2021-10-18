@@ -89,14 +89,14 @@
   "active": "9202173222245831",
   "lastOpenFiles": [
     "UI Localization.md",
-    "Stats.md",
-    "Philosophy.md",
-    "Map Objects.md",
-    "OpenNefia-LÖVE.md",
-    "Effects.md",
-    "Def.md",
-    "Variants/Vanilla (1.22).md",
     "Spells.md",
+    "Variants/Vanilla/Vanilla (1.22).md",
+    "Variants/oomSEST/Titles.md",
+    "Variants/oomSEST/oomSEST.md",
+    "Variants/oomSEST/Untitled.md",
+    "Untitled.md",
+    "Effects.md",
+    "Map Objects.md",
     "Buffs and Hexes.md"
   ]
 }

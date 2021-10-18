@@ -9,7 +9,7 @@ Also, a select set of actions (Pickpocket, Riding, Cooking, etc.) *do* have a co
 ## Definition Parameters
 
 - Effect: The [[Effects|Effect]] this spell causes when triggered. Spells could use a compositional Effect implementation to support running multiple Effects in sequence, randomly from a pool, or in any number of custom ways.
-- Type: Action/Spell. As mentioned above.
+- Type: Action/Spell. As mentioned above, if actions and spells aren't going to be separated.
 - Alignment: Positive/neutral/negative. Affects aggro when casting the spell on a neutral target.
 - Cost: Cost in MP or stamina to apply when using the spell/action, respectively. It may be worth splitting this into separate stamina and MP costs, instead of having them depend on the spell type.
 - Range: Range in tiles of the spell. Also affects AI targeting and spell usage.
@@ -38,7 +38,7 @@ There will always be a tradeoff between having the flexibility to define whateve
 
 Another issue is how to resolve the "obvious" status of spells triggered by items.
 
-Certain spells will not reveal the item they're used with to the player in some circumstances. In [[Vanilla (1.22)|vanilla]] this is handled by setting a global named `obvious` to `true`.
+Certain spells will not reveal the item they're used with to the player in some circumstances. In [[Variants/Vanilla/Overview|vanilla]] this is handled by setting a global named `obvious` to `true`.
 
 How is this going to work with Effects?
 
@@ -64,6 +64,7 @@ For simplicity, the `Apply()` function in the interface for [[Effects]] may just
 - X: Target map X position. The map to be used is assumed to be the same as that of the Target.
 - Y: Target map Y position.
 - Power: Power level of the spell. This is a number value which scales with the level of the spell, action or item. It is meant to be interpreted in a freeform manner.
+- Range: Range of the spell. This is for modifying the spell range via events, such as the [[Titles|Title]] in [[Variants/oomSEST/Overview|oomSEST]] that increases the range of Swarm by 1 tile. 
 - Curse State: The curse state of the item triggering the spell. Can be separate from the target item.
 - Triggered by: What triggered the spell. The known variants are:
 	+ Wand

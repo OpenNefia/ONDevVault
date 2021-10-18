@@ -101,3 +101,27 @@ return {
 ```
 
 This would be a high-level abstraction over a bare-bones API like `OpenNefia.Core.I18N.Get("CustomNamespace.Foo.Scut")` that returns a string.
+
+## Dependencies
+
+A problem arises when there is a child component that needs to be passed a string, but the localized string wasn't attached yet by `UILocalize`.
+
+```csharp
+    internal class TestLayer : BaseUiLayer<string>
+    {
+        [UILocalize]
+        private IUiTextNoArgs TextFromString;
+		private UiWindow Window;
+        
+        private FontDef FontTextWhite;
+
+        public TestLayer()
+        {
+            TextFromString = new UiTextNoArgs(this.FontText);
+			Window = new UiWindow(TextFromString);
+		}
+	}
+}
+```
+
+Maybe in this case, there could be a weak reference that receives a string and nothing more, instead of wrapping that inside a `UiText`.

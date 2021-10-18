@@ -30,7 +30,7 @@ And even as a programmer, the worries about forgetting what you named an object 
 
 ON-LÖVE is extensible to a fault.
 
-The point is this: because OpenNefia's new codebase is going to be produced with the express intention of ease of maintainability, the ability to add frequently requested interfaces for extensibility at a later time should be easy, even if the implementation language isn't quite as dynamic as Lua. Code quality and a decent enough design are what allows us to not have to worry about that ideal of modding the things we want to becoming unattainable, neither of which 1.22 had in the beginning.
+The point is this: Because OpenNefia's new codebase is going to be produced with the express intention of ease of maintainability, the ability to add frequently requested interfaces for extensibility at a later time should be easy, even if the implementation language isn't quite as dynamic as Lua. Code quality and a decent enough design are what allows us to not have to worry about that ideal of modding the things we want to becoming unattainable, neither of which 1.22 had in the beginning.
 
 There are a lot of things you can mod with ON-LÖVE's current design, so that isn't an issue. Taking that design and stabilizing it is the next step.
 
