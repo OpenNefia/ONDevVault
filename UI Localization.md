@@ -71,32 +71,16 @@ namespace OpenNefia.Core.UI.Layer
 Then there would be a corresponding translation file (Lua or XML) that would be namespaced under `OpenNefia.Core.UI.Layer.TestLayer` with the translations to fill in.
 
 ```lua
-return {
-    ["OpenNefia.Core.UI.Layer.TestLayer"] = 
-    {
-        TextFromString = "Hello, world.",
-        TextFromFn1 = function(_1) return ("Character: %s"):format(_1.Name) _end,
-        TextFromFn2 = function(_1, _2_) return ("Args: %s %s") end,
-    },
-    
-    ["CustomNamespace.Foo"] = 
-    {
-        Scut = "Scut!"
-    },
-    
-    -- alternatively
-    
-    OpenNefia = {
-        Core = {
-            UI = {
-                Layer = {
-                    TestLayer = {
-                        -- ...
-                    }
-                }
-            }
-        }
-    }
+OpenNefia.Core.Ui.Layer.TestLayer
+{
+    TextFromString = "Hello, world.",
+    TextFromFn1 = function(_1) return ("Character: %s"):format(_1.Name) _end,
+    TextFromFn2 = function(_1, _2_) return ("Args: %s %s") end,
+}
+
+CustomNamespace.Foo
+{
+    Scut = "Scut!"
 }
 ```
 
