@@ -1,4 +1,7 @@
 {
   "alwaysUpdateLinks": false,
-  "spellcheck": true
+  "spellcheck": true,
+  "spellcheckDictionary": [
+    "composability"
+  ]
 }
