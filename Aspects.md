@@ -48,6 +48,9 @@ I think allowing people to combine arbitrary Aspects together and expecting ever
 
 So my thinking with this is that `WellDrinkableAspect` and `PotionDrinkableAspect` would be mutually incompatible. They should not be aspects.
 
-### Inheritance instead.
+## Testing theories
 
-*But*, maybe there is now a `Feat_Well` and
+Assume option 2 is chosen.
+
+So the potion will have some kind of `OnDrink(Chara chara)` callback, *somewhere*. The difference from feats is that [[Items]] are `sealed`, and cannot be inherited from.
+
