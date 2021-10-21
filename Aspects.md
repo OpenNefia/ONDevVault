@@ -112,14 +112,14 @@ public class PotionAspect : MapObjectAspect, ICanDrinkAspect, ICanBeThrownAspect
 	
 #region IEffectArgsGenerator implementation.
 	
-	public virtual EffectArgs GetEffectArgs(Chara chara, string kind)
+	public virtual EffectArgs GetEffectArgs(Chara chara, string triggeredBy)
 	{
 		// NOTE: If this item is being thrown, then this.Parent 
 		// still has to be the throwing character for 
-		// hostile actions to work this implementation of Effects.
+		// hostile actions to work with this implementation of Effects.
 
         MapObject potionItem = this.Parent;
-        return PotionProps.EffectParams.ToArgs(chara, source: potionItem);
+        return PotionProps.EffectParams.ToArgs(chara, source: potionItem, triggeredBy: triggeredBy);
 	}
 	
 #endregion
@@ -204,4 +204,14 @@ Turn ends.
 
 ### "It increases the strength of the potions you consume by 10%."
 
-Patch `PotionAspect.OnDrink()`.
+Patch `PotionAspect.GetEffectArgs()` to look like this.
+
+```csharp
+	public EffectArgs PotionAspect_GetEffectArgs__Patched(Chara chara, string triggeredBy)
+	{
+		var orig = GetEffectArgs(chara, triggeredBy);
+		var strengthMod = chara.GetAspectOrNull<ExEnchantPropsAspect>()?.PotionStrengthMod ?? 1.0f;
+		orig.Power *= strengthMod;
+		return orig;
+	}
+```

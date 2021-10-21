@@ -4,7 +4,7 @@
     "type": "split",
     "children": [
       {
-        "id": "9202173222245831",
+        "id": "2bcb9e4a83347db8",
         "type": "leaf",
         "state": {
           "type": "markdown",
@@ -86,17 +86,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "9202173222245831",
+  "active": "2bcb9e4a83347db8",
   "lastOpenFiles": [
     "Aspects.md",
+    "Effects.md",
+    "Lua.md",
+    "Stats.md",
     "Spells.md",
     "Research/Nested Object Containers/Smoke Tests.md",
     "Research/Nested Object Containers/CDDA.md",
-    "Lua.md",
     "a dynamic language with no classes.md",
     "Research/Nested Object Containers/Overview.md",
-    "Research/Nested Object Containers/Rimworld.md",
-    "Research/Nested Object Containers.md",
-    "UI Localization.md"
+    "Research/Nested Object Containers/Rimworld.md"
   ]
 }
