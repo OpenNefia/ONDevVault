@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "UI Localization.md",
+            "file": "Research/Nested Object Containers/CDDA.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "UI Localization.md",
+                "file": "Research/Nested Object Containers/CDDA.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,15 +88,15 @@
   },
   "active": "9202173222245831",
   "lastOpenFiles": [
+    "Research/Nested Object Containers/CDDA.md",
+    "Research/Nested Object Containers/Overview.md",
+    "Research/Nested Object Containers/Rimworld.md",
+    "Research/Nested Object Containers.md",
     "UI Localization.md",
-    "Untitled.md",
     "Spells.md",
     "Variants/Vanilla/Vanilla (1.22).md",
     "Variants/oomSEST/Titles.md",
     "Variants/oomSEST/oomSEST.md",
-    "Variants/oomSEST/Untitled.md",
-    "Effects.md",
-    "Map Objects.md",
-    "Buffs and Hexes.md"
+    "Variants/oomSEST/Untitled.md"
   ]
 }
