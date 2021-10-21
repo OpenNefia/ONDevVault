@@ -54,3 +54,6 @@ Assume option 2 is chosen.
 
 So the potion will have some kind of `OnDrink(Chara chara)` callback, *somewhere*. The difference from feats is that [[Items]] are `sealed`, and cannot be inherited from.
 
+And it might not be a potion. It could be anything with an `OnDrink()` callback as well.
+
+`Feat_PotionPuddle` would store the Item responsible for the puddle. When it is stepped on, it trug
