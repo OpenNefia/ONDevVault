@@ -82,15 +82,15 @@ To move an aspect between `IAspectHolder`s, you'd take the aspect properties and
     </Categories>
     <Aspects>
         <li Class="Core.PotionAspect">
+			<Power>100</Power>
             <Effect class="Core.MagicEffect">
                 <Id>Core.HealCritical</Id>
-                <Power>100</Power>
             </Effect>
         </li>
         <li Class="Core.PotionAspect">
+			<Power>100</Power>
             <Effect class="Core.MagicEffect">
                 <Id>Core.TrollsBlood</Id>
-                <Power>100</Power>
             </Effect>
         </li>
     </Aspects>
@@ -114,7 +114,7 @@ public class PotionAspect : MapObjectAspect, ICanDrinkAspect, ICanBeThrownAspect
     // NOTE: How many should be consumed? Is it always 1?
     public bool ShouldConsumeOnDrink => true;
     
-    public void OnDrink(Chara chara) 
+    public virtual void OnDrink(Chara chara) 
     {
         // NOTE: If this item is being thrown, then this.Parent 
         // still has to be the throwing character for 
@@ -122,7 +122,7 @@ public class PotionAspect : MapObjectAspect, ICanDrinkAspect, ICanBeThrownAspect
         MapObject potionItem = this.Parent;
         
         var args = new EffectArgs(chara, source: potionItem);
-        PotionProps.Effect.Apply(args);
+        this.PotionProps.Effect.Apply(args);
     }
     
 #endregion
@@ -132,7 +132,7 @@ public class PotionAspect : MapObjectAspect, ICanDrinkAspect, ICanBeThrownAspect
     // NOTE: How many should be destroyed? Is it always 1?
     public bool ShouldDestroyOnThrow => true;
     
-    public void OnThrownImpact(InstancedMap map, int x, int y) 
+    public virtual void OnThrownImpact(InstancedMap map, int x, int y) 
     {
         MapObject potionItem = this.Parent;
         
@@ -167,7 +167,6 @@ public class PotionAspectProps : AspectProperties
 
     public PotionAspectProps() 
     {
-    
     }
 }
 ```
