@@ -114,6 +114,11 @@ public class PotionAspect : MapObjectAspect, ICanDrinkAspect, ICanBeThrownAspect
     // NOTE: How many should be consumed? Is it always 1?
     public bool ShouldConsumeOnDrink => true;
     
+	public virtual bool CanDrink(Chara chara)
+	{
+	
+	}
+	
     public virtual void OnDrink(Chara chara) 
     {
         // NOTE: If this item is being thrown, then this.Parent 
@@ -170,3 +175,11 @@ public class PotionAspectProps : AspectProperties
     }
 }
 ```
+
+Item is created. `potion.OnDrink()` is called.
+
+Both aspects call their overridden versions of `ICanDrinkAspect.OnDrink(Chara)`.
+
+Based on `ShouldConsumeOnDrink`, one unit of the potion is consumed.
+
+Turn ends.
