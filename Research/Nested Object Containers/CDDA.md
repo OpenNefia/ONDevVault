@@ -24,7 +24,7 @@ No. The list of special container types is hardcoded in `item_pocket`.
 
 `item_pocket` has `can_contain(item, ignore_fullness)` that returns a `contain_code`:  wrong ammo type, insufficient weight, insufficient space, liquid in non-watertight container, gas in non-airtight container.
 
-## Does it support positional access?
+## How do I query for a list of objects on a tile?
 
 ## How do the parent object(s) get notified when objects have been added/removed?
 

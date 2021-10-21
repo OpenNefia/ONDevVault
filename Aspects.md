@@ -145,10 +145,14 @@ public class PotionAspect : MapObjectAspect, ICanDrinkAspect, ICanBeThrownAspect
         {
             Feat puddle = Feat.Create(FeatDefOf.DrinkablePuddle, map, x, y);
 
-            var props = new Feat_DrinkablePuddleProps();
+            var props = new Feat_DrinkablePuddleProps()
+            {
+                MapObject = this.CloneDespawned(),
+                Drinkables = new List<IDrinkableAspect>()
+            };
             IAspect aspect = Aspect.CreateFromProps<Feat_DrinkablePuddle>(props);
 
-            puddle.AddAspect()
+            puddle.AddAspect(aspect);
         }
     }
 
