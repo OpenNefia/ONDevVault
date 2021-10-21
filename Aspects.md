@@ -20,9 +20,34 @@ One major issue is the implicit dependent aspects that other aspects assume are 
 
 ## Inheritance, with nested aspect holders/parents
 
-My hesitation with the latter inheritance-based approach is that it uses inheritance at all, and we are generally taught that "inheritance == bad". Yet, this design problem is another reminder that nothing in software design is an absolute. This is a case where excessive composability hinders the quality of the final result. It shouldn't be necessary to check if an aspect that *needs* to be on the object is there or not, if it *always* needs to be there for the code to work correctly. The former composition-based approach almost sounds like the kind of design that would come out of using [[Lua|a dynamic language with no classes]] as the main implementation language...
+My hesitation with the latter inheritance-based approach is that it uses inheritance at all, and we are generally taught that "inheritance == bad". Yet, this design problem is another reminder that nothing in software design is an absolute. This is a case where excessive composability hinders the quality of the final result.
+
+It shouldn't be necessary to check if an aspect that *needs* to be on the object is there or not, if it *always* needs to be there for the code to work correctly.
+
+It doesn't make sense for a potion puddle to *not* have a potion aspect. Therefore it ought to be a field/property on the feat.
+
+The former composition-based approach almost sounds like the kind of design that would come out of using [[Lua|a dynamic language with no classes]] as the main implementation language...
 
 And anyways, if a modder wants to create a new feat that changes the effects of the hypothetical `Feat_PotionPuddle` to spawn Putits fused with the effects of the tossed potion, they can simply make a new subclass of `Feat` and patch the logic where the potion is broken to spawn that feat instead of the original.
 
 If a modder wants to affect anything that has a potion effect, like turning the potion puddles, potions in one's inventory, or even the fused potion Putits to be made of poison instead, that would be a job for Aspects. `Aspect` would expose a method, `void GetChildAspectHolders(out List<IAspectHolder>)`, which returns a list of things that can hold aspects inside any nested aspects. It would also expose `IEnumerable<Aspect> GetDirectlyHeldAspects()` for enumerating the aspects in the current holder. Then you could call this on every aspect on the map/charas/items to get all the aspects for everything in a nested fashion, filter on the ones where `aspect is PotionAspect`, and perform the changes you want.
 
+## Composition, with nested aspects
+
+But why not just have a `PotionPuddleAspect` that wraps a `PotionEffectProperties`, and attach that to the feat instead of attaching a `PotionAspect` directly?
+
+I think it is because it makes the use action logic more complicated.
+
+Consider item use logic. Say this approach is implemented, and you decide you want to combine a `PotionDrinkableAspect` and a `WellDrinkableAspect` together, for some weird reason.
+
+`PotionDrinkableAspect`'s behavior is such that the item should be consumed after the drink action finishes.
+
+What happens when you try to drink such an object?
+
+I think allowing people to combine arbitrary Aspects together and expecting everything to just work isn't sustainable.
+
+So my thinking with this is that `WellDrinkableAspect` and `PotionDrinkableAspect` would be mutually incompatible. They should not be aspects.
+
+### Inheritance instead.
+
+*But*, maybe there is now a `Feat_Well` and
