@@ -79,7 +79,7 @@ To move an aspect between `IAspectHolder`s, you'd take the aspect properties and
 <ItemDef Id="PotionOfHealingAndSpeed">
     <Categories>
         <li>Core.Potion</li>
-    </Categories
+    </Categories>
     <Aspects>
         <li Class="Core.PotionAspect">
             <Effect class="Core.MagicEffect">
@@ -97,5 +97,73 @@ To move an aspect between `IAspectHolder`s, you'd take the aspect properties and
 </ItemDef>	
 ```
 
+`PotionAspect` is defined like so.
 
+```csharp
+public class PotionAspect : MapObjectAspect, ICanDrinkAspect, ICanBeThrownAspect
+{
+    public PotionAspectProps PotionProps => (PotionAspectProps)this.Props;
+    
+    public override void Initialize(AspectProperties props)
+    {
+    
+    }
+    
+#region ICanDrinkAspect implementation. 
+    
+    // NOTE: How many should be consumed? Is it always 1?
+    public bool ShouldConsumeOnDrink => true;
+    
+    public void OnDrink(Chara chara) 
+    {
+        // NOTE: If this item is being thrown, then this.Parent 
+        // still has to be the throwing character for 
+        // hostile actions to work this implementation of Effects.
+        MapObject potionItem = this.Parent;
+        
+        var args = new EffectArgs(chara, source: potionItem);
+        PotionProps.Effect.Apply(args);
+    }
+    
+#endregion
 
+#region ICanBeThrownAspect
+    
+    // NOTE: How many should be destroyed? Is it always 1?
+    public bool ShouldDestroyOnThrow => true;
+    
+    public void OnThrownImpact(InstancedMap map, int x, int y) 
+    {
+        MapObject potionItem = this.Parent;
+        
+        var chara is map.GetOptionalAtPos<Chara>(x, y).FirstOrDefault();
+        if (chara != null) 
+        {
+            this.OnDrink(chara);
+        }
+        else 
+        {
+            Feat puddle = Feat.Create(FeatDefOf.DrinkablePuddle, map, x, y);
+
+            var props = new Feat_DrinkablePuddleProps();
+            IAspect aspect = Aspect.CreateFromProps<Feat_DrinkablePuddle>(props);
+
+            puddle.AddAspect()
+        }
+    }
+
+#endregion
+}
+
+[AspectClass(typeof(PotionAspect))]
+public class PotionAspectProps : AspectProperties
+{
+    [DefRequired]
+    IEffect Effect = null!;
+
+    public PotionAspectProps() 
+    {
+    
+    }
+}
+```
