@@ -82,15 +82,16 @@ To move an aspect between `IAspectHolder`s, you'd take the aspect properties and
     </Categories>
     <Aspects>
         <li Class="Core.PotionAspect">
-			<Power>100</Power>
-            <Effect class="Core.MagicEffect">
-                <Id>Core.HealCritical</Id>
-            </Effect>
-        </li>
-        <li Class="Core.PotionAspect">
-			<Power>100</Power>
-            <Effect class="Core.MagicEffect">
-                <Id>Core.TrollsBlood</Id>
+			<Params Power="100"/>
+            <Effect class="Core.CompositeEffect">
+				<li class="Core.MagicEffect">
+                	<Id>Core.HealCritical</Id>
+					<PowerMultiplier>1.5</PowerMultiplier>
+				</li>
+				<li class="Core.MagicEffect">
+					<Id>Core.TrollsBlood</Id>
+					<PowerMultiplier>0.8</PowerMultiplier>
+				</li>
             </Effect>
         </li>
     </Aspects>
@@ -108,6 +109,20 @@ public class PotionAspect : MapObjectAspect, ICanDrinkAspect, ICanBeThrownAspect
     {
     
     }
+	
+#region IEffectArgsGenerator implementation.
+	
+	public virtual EffectArgs GetEffectArgs(Chara chara, string kind)
+	{
+		// NOTE: If this item is being thrown, then this.Parent 
+		// still has to be the throwing character for 
+		// hostile actions to work this implementation of Effects.
+
+        MapObject potionItem = this.Parent;
+        return new EffectArgs(chara, source: potionItem, power: this.PotionProps.Power);
+	}
+	
+#endregion
     
 #region ICanDrinkAspect implementation. 
     
@@ -116,18 +131,12 @@ public class PotionAspect : MapObjectAspect, ICanDrinkAspect, ICanBeThrownAspect
     
 	public virtual bool CanDrink(Chara chara)
 	{
-	
+		return true;
 	}
 	
     public virtual void OnDrink(Chara chara) 
     {
-        // NOTE: If this item is being thrown, then this.Parent 
-        // still has to be the throwing character for 
-        // hostile actions to work this implementation of Effects.
-        MapObject potionItem = this.Parent;
-        
-        var args = new EffectArgs(chara, source: potionItem);
-        this.PotionProps.Effect.Apply(args);
+        this.PotionProps.Effect.Apply(this.GetEffectArgs(chara, EffectTriggeredBy.Drinking));
     }
     
 #endregion
@@ -144,7 +153,7 @@ public class PotionAspect : MapObjectAspect, ICanDrinkAspect, ICanBeThrownAspect
         var chara is map.GetOptionalAtPos<Chara>(x, y).FirstOrDefault();
         if (chara != null) 
         {
-            this.OnDrink(chara);
+        	this.PotionProps.Effect.Apply(this.GetEffectArgs(chara, EffectTriggeredBy.Throwing));
         }
         else 
         {
@@ -152,8 +161,8 @@ public class PotionAspect : MapObjectAspect, ICanDrinkAspect, ICanBeThrownAspect
 
             var props = new Feat_DrinkablePuddleProps()
             {
-                MapObject = this.CloneDespawned(),
-                Drinkables = new List<IDrinkableAspect>()
+				Power = this.PotionProps.Power,
+                Effect = this.PotionProps.Effect,
             };
             IAspect aspect = Aspect.CreateFromProps<Feat_DrinkablePuddle>(props);
 
@@ -167,9 +176,12 @@ public class PotionAspect : MapObjectAspect, ICanDrinkAspect, ICanBeThrownAspect
 [AspectClass(typeof(PotionAspect))]
 public class PotionAspectProps : AspectProperties
 {
+	[DefRequired]
+	int Power = 0;
+
     [DefRequired]
     IEffect Effect = null!;
-
+	
     public PotionAspectProps() 
     {
     }
@@ -183,3 +195,7 @@ Both aspects call their overridden versions of `ICanDrinkAspect.OnDrink(Chara)`.
 Based on `ShouldConsumeOnDrink`, one unit of the potion is consumed.
 
 Turn ends.
+
+### "It increases the strength of the potions you consume by 10%."
+
+Patch `PotionAspect.OnDrink()`.
