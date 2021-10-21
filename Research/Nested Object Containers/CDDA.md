@@ -4,6 +4,8 @@
 
 `item_contents` contains a list of `item_pockets`. When storing an item, it searches for the best pocket to put the item into, if any, and moves it there.
 
+`item_stack` wraps a list of items.
+
 ## What kinds of game objects can be stored in it?
 
 Items only.
