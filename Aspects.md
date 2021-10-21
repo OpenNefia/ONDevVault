@@ -148,7 +148,7 @@ public class PotionAspect : MapObjectAspect, ICanDrinkAspect, ICanBeThrownAspect
 	
 	public virtual bool CanThrow(Chara chara)
 	{
-		
+		return true;
 	}
     
     public virtual void OnThrownImpact(InstancedMap map, int x, int y) 
