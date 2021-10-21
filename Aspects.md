@@ -58,4 +58,44 @@ And it might not be a potion. It could be anything with an `OnDrink(Chara)` call
 
 `Feat_PotionPuddle` would store the Item responsible for the puddle. When it is stepped on, it takes the item and triggers the item's `OnDrink(Chara)` on the character that stepped on it.
 
-So `OnDrink()` should not consume the item. There should be an ability to add two `PotionAspect`s with `OnDrink()` callbacks that are both called.
+So `OnDrink()` should not consume the item. There should be an ability to add two `PotionAspect`s with `OnDrink()` callbacks that are both called. You should also be able to create a filtration bottle that is not consumed when drinking out of it. Something about the aspect should determine whether or not it is consumed on drink. `bool ShouldConsumeOnDrink { get; }` might be an option. If any aspect has `ShouldConsumeOnDrink` equal to false, then don't drink it.
+
+Consider a filtration bottle (`FiltrationBottleAspect`) that you can fill up with an `IDrinkableAspect`. This drinkable could be anything, not just a potion.
+
+When running the `OnDrink()` callback on the parent item, `OnDrink()` should only be called on the `FiltrationBottleAspect`, *not* the `IDrinkableAspect` that it contains, so that the bottle can check if it still has any liquid left. But we still want that `IDrinkableAspect` to be available in the Aspect parent-child hierarchy for modification purposes, like turning it to poison.
+
+So I guess a rule could be decided: when a callback is run, only the aspects that are direct descendants of the item will have their callbacks run. Anything more granular would have to be handled by the individual aspects themselves (`FiltrationBottleAspect` would call `OnDrink()` within its own logic).
+
+And of course there should be a way to determine if this "callback rule" holds for any arbitrary Aspect in the tree. That could be a virtual method: `virtual bool RunsAspectCallbacksIfNested(IAspectHolder parent, string callbackType)`. The default impl would be `this.Parent is MapObject`, where `parent` is a thing can contain aspects. (Aspects themselves would implement this interface.)
+
+To move an aspect between `IAspectHolder`s, you'd take the aspect properties and pass them the constructor for that aspect type. All aspects would have a uniform interface like this, requiring an `Initialize(AspectProperties)` method.
+
+## Test Cases
+
+### Drinking a potion
+
+1. Potion is defined like so.
+```xml
+<ItemDef Id="PotionOfHealingAndSpeed">
+    <Categories>
+        <li>Core.Potion</li>
+    </Categories
+    <Aspects>
+        <li Class="Core.PotionAspect">
+            <Effect class="Core.MagicEffect">
+                <Id>Core.HealCritical</Id>
+                <Power>100</Power>
+            </Effect>
+        </li>
+        <li Class="Core.PotionAspect">
+            <Effect class="Core.MagicEffect">
+                <Id>Core.TrollsBlood</Id>
+                <Power>100</Power>
+            </Effect>
+        </li>
+    </Aspects>
+</ItemDef>	
+```
+
+
+
