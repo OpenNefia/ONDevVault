@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Research/Nested Object Containers/CDDA.md",
+            "file": "Aspects.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Research/Nested Object Containers/CDDA.md",
+                "file": "Aspects.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,6 +88,7 @@
   },
   "active": "9202173222245831",
   "lastOpenFiles": [
+    "Aspects.md",
     "Research/Nested Object Containers/CDDA.md",
     "Research/Nested Object Containers/Overview.md",
     "Research/Nested Object Containers/Rimworld.md",
@@ -96,7 +97,6 @@
     "Spells.md",
     "Variants/Vanilla/Vanilla (1.22).md",
     "Variants/oomSEST/Titles.md",
-    "Variants/oomSEST/oomSEST.md",
-    "Variants/oomSEST/Untitled.md"
+    "Variants/oomSEST/oomSEST.md"
   ]
 }
