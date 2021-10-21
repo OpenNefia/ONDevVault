@@ -82,7 +82,7 @@ To move an aspect between `IAspectHolder`s, you'd take the aspect properties and
     </Categories>
     <Aspects>
         <li Class="Core.PotionAspect">
-			<Params Power="100"/>
+			<Params Power="100" Range="2"/>
             <Effect class="Core.CompositeEffect">
 				<li class="Core.MagicEffect">
                 	<Id>Core.HealCritical</Id>
@@ -119,7 +119,7 @@ public class PotionAspect : MapObjectAspect, ICanDrinkAspect, ICanBeThrownAspect
 		// hostile actions to work this implementation of Effects.
 
         MapObject potionItem = this.Parent;
-        return new EffectArgs(chara, source: potionItem, power: this.PotionProps.Power);
+        return PotionProps.EffectParams.ToArgs(chara, source: potionItem);
 	}
 	
 #endregion
@@ -145,6 +145,11 @@ public class PotionAspect : MapObjectAspect, ICanDrinkAspect, ICanBeThrownAspect
     
     // NOTE: How many should be destroyed? Is it always 1?
     public bool ShouldDestroyOnThrow => true;
+	
+	public virtual bool CanThrow(Chara chara)
+	{
+		
+	}
     
     public virtual void OnThrownImpact(InstancedMap map, int x, int y) 
     {
@@ -162,7 +167,7 @@ public class PotionAspect : MapObjectAspect, ICanDrinkAspect, ICanBeThrownAspect
             var props = new Feat_DrinkablePuddleProps()
             {
 				Power = this.PotionProps.Power,
-                Effect = this.PotionProps.Effect,
+                EffectParams = this.PotionProps.EffectParams,
             };
             IAspect aspect = Aspect.CreateFromProps<Feat_DrinkablePuddle>(props);
 
@@ -176,8 +181,9 @@ public class PotionAspect : MapObjectAspect, ICanDrinkAspect, ICanBeThrownAspect
 [AspectClass(typeof(PotionAspect))]
 public class PotionAspectProps : AspectProperties
 {
+	// Power, range, curse state.
 	[DefRequired]
-	int Power = 0;
+	EffectParamsWithoutTarget EffectParams = null!;
 
     [DefRequired]
     IEffect Effect = null!;
