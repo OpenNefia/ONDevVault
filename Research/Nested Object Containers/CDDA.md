@@ -4,7 +4,13 @@
 
 `item_contents` contains a list of `item_pockets`. When storing an item, it searches for the best pocket to put the item into, if any, and moves it there.
 
+The `item` class in turn contains an `item_contents`, and you can call `item->get_contents()` on it. But the contents are allocated from a `std::vector<pocket_data>` on an `itype` struct, which also holds "components" for things like bionics/tools/books/etc (think [[Aspects]]).
+
+`pocket_data` affects the properties of the item container, like applying spoilage/weight/volume modifiers, and setting restrictions via flags.
+
 `item_stack` wraps a list of items.
+
+`map_stack` also contains a list of items, but is allocation from a `submap`'s colony of items on a tile. The `map` has `i_at()` which returns a `map_stack` from the submap at the given position. This is for items only.
 
 ## What kinds of game objects can be stored in it?
 
@@ -24,15 +30,19 @@ It's worth considering how item amount and charges will affect item weight.
 
 ## How do I get the thing that owns this container? (character, container item, map, etc.)
 
+`item` has an `item_contents`.
+
 ## How do I get all the objects in this container and its nested containers?
 
 `item_contents` uses the Visitor pattern with `visit_contents(Func<item*, item*> &func, item* parent)`. It returns a `VisitResponse` (next, skip, abort).
 
 ## How does it implement permissions/limitations?
 
-`item_pocket` has `can_contain(item, ignore_fullness)` that returns a `contain_code`:  wrong ammo type, insufficient weight, insufficient space, liquid in non-watertight container, gas in non-airtight container.
+`item_pocket` has `can_contain(item, ignore_fullness)` that returns a `contain_code`:  wrong ammo type, insufficient weight, insufficient space, liquid in non-watertight container, gas in non-airtight container, etc.
 
 The permissions logic is hardcoded for the set of container types (chest, corpse, eBook, magazine, etc).
+
+There are also a set of `FlagsSetType` for disallowing certain types of items, which are apparently strings.
 
 ## How do I query for a list of objects on a tile?
 

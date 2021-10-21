@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Research/Nested Object Containers/CDDA.md",
+            "file": "Research/Nested Object Containers/Smoke Tests.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Research/Nested Object Containers/CDDA.md",
+                "file": "Research/Nested Object Containers/Smoke Tests.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,6 +88,7 @@
   },
   "active": "9202173222245831",
   "lastOpenFiles": [
+    "Research/Nested Object Containers/Smoke Tests.md",
     "Research/Nested Object Containers/CDDA.md",
     "Aspects.md",
     "Lua.md",
@@ -96,7 +97,6 @@
     "Research/Nested Object Containers/Rimworld.md",
     "Research/Nested Object Containers.md",
     "UI Localization.md",
-    "Spells.md",
-    "Variants/Vanilla/Vanilla (1.22).md"
+    "Spells.md"
   ]
 }
