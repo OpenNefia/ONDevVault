@@ -54,6 +54,8 @@ Assume option 2 is chosen.
 
 So the potion will have some kind of `OnDrink(Chara chara)` callback, *somewhere*. The difference from feats is that [[Items]] are `sealed`, and cannot be inherited from.
 
-And it might not be a potion. It could be anything with an `OnDrink()` callback as well.
+And it might not be a potion. It could be anything with an `OnDrink(Chara)` callback as well.
 
-`Feat_PotionPuddle` would store the Item responsible for the puddle. When it is stepped on, it trug
+`Feat_PotionPuddle` would store the Item responsible for the puddle. When it is stepped on, it takes the item and triggers the item's `OnDrink(Chara)` on the character that stepped on it.
+
+So `OnDrink()` should not consume the item. There should be an ability to add two `PotionAspect`s with `OnDrink()` callbacks that are both called.
