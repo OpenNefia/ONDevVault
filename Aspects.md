@@ -215,3 +215,24 @@ Patch `PotionAspect.GetEffectArgs()` to look like this.
 		return orig;
 	}
 ```
+
+### "Poison drips from your hands."
+
+Patch `PostObtain(Chara, MapObject)` to check for potions.
+
+```csharp
+if (chara.HasTrait(TraitDefOf.EtherPoison))
+{
+	if (item.HasCategory(ItemCatDefOf.Drink) && CanPoisonPotion(item)) 
+	{
+		item.ChangeDefTo(ItemDefOf.PotionPoison);
+		
+		var potions = item.GetAspects<PotionAspect>();
+
+		foreach ( var potion in potions )
+		{
+			potion.props.Effect = new SpellEffect(SpellDefOf.EffectPoison);
+		}
+	}
+}
+```
