@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Design Overview.md",
+            "file": "Game Data Overview.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Design Overview.md",
+                "file": "Game Data Overview.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,7 +88,7 @@
   },
   "active": "2a31824f29c32081",
   "lastOpenFiles": [
-    "Design Overview.md",
+    "Game Data Overview.md",
     "Defs.md",
     "Areas.md",
     "Maps.md",

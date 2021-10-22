@@ -1,8 +1,10 @@
-OpenNefia.NET is currently being designed around a set of data structures, each with their own specific purpose.
+OpenNefia.NET is currently being designed around a set of data models, each with their own specific purpose.
 
 However, of course, nothing is final, and everything is still subject to change. The final design will depend on how easy it becomes to mod the game, as well as the potential headaches that arise from trying to use the engine and API on a day-to-day basis.
 
-There are six fundamental "building blocks" in OpenNefia.NET's ecosystem. starting from least to most granular: Worlds, Areas, Maps, Map Objects, Aspects, and Effects.
+## Overarching Concepts
+
+There are six fundamental "building blocks" in OpenNefia.NET's ecosystem, starting from least to most granular: Worlds, Areas, Maps, Map Objects, Aspects, and Effects.
 
 A World holds a complete saved game. It holds a list of all generated Areas, as well as the extra, global saved data for mods that doesn't belong in a Map.
 
