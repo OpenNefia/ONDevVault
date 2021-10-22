@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Defs.md",
+            "file": "Aspects.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Defs.md",
+                "file": "Aspects.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,15 +88,15 @@
   },
   "active": "2a31824f29c32081",
   "lastOpenFiles": [
-    "Defs.md",
-    "Effects.md",
     "Aspects.md",
-    "UI Localization.md",
-    "UiLayers.md",
+    "Buffs and Hexes.md",
+    "Defs.md",
     "Stats.md",
     "Spells.md",
-    "Maps.md",
-    "Map Objects.md",
-    "Lua.md"
+    "UiLayers.md",
+    "UI Localization.md",
+    "Philosophy.md",
+    "OpenNefia-LÖVE.md",
+    "Maps.md"
   ]
 }

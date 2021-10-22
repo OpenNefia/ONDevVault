@@ -46,7 +46,7 @@ What happens when you try to drink such an object?
 
 I think allowing people to combine arbitrary Aspects together and expecting everything to just work isn't sustainable.
 
-So my thinking with this is that `WellDrinkableAspect` and `PotionDrinkableAspect` would be mutually incompatible. They should not be aspects.
+So my thinking with this is that `WellDrinkableAspect` and `PotionDrinkableAspect` would be mutually incompatible. They should not be aspects. Or should they?
 
 ## Testing theories
 
