@@ -210,6 +210,14 @@ Patch `PotionAspect.GetEffectArgs()` to look like this.
 	public EffectArgs PotionAspect_GetEffectArgs__Patched(Chara chara, string triggeredBy)
 	{
 		var orig = GetEffectArgs(chara, triggeredBy);
+		
+		// Perhaps filter only potions consumed willingly,
+		// not in puddles or from thrown potions.
+		if (orig.TriggeredBy != TriggeredBy.Drinking)
+		{
+			return orig;
+		}
+		
 		var strengthMod = chara.GetAspectOrNull<ExEnchantPropsAspect>()?.PotionStrengthMod ?? 1.0f;
 		orig.Power *= strengthMod;
 		return orig;
