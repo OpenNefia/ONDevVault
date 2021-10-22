@@ -55,7 +55,7 @@ An Effect is well-suited for composition with other Effects, by passing the chil
 </MagicDef>
 ```
 
-Effects would be used to model things like the instant effects of spells and the passive effects of buffs/hexes/status effects. Passive and active effects should be interchangeable. Effects should not care about whether or not they affect [[Stats|Stat]] values on the target.
+Effects would be used to model things like the instant effects of spells and the passive effects of buffs/hexes/status effects. Passive and active effects should be interchangeable. Effects should not care about whether or not they affect [[Stats|Stat]] values on the target. (Or maybe they should, by having an `IEffectRefreshable` interface which adds a `Refresh()` method?)
 
 An Effect defined for the purpose of something like magic should be easily reusable for a completely different purpose, such as when using an item, or behavior that can be added to a trap, with minimal or no code changes.
 
