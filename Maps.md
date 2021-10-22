@@ -21,4 +21,4 @@ To accomplish this there would be a `MapLock` that implements `IDisposable`, whi
 
 `MapLock`s will also have to be serialized correctly for this to work.
 
-When all map operations are finished, like during scenario startup or after traveling between maps, call `FlushMapsFromMemory()` to unload the open maps with no `MapLock`s active.
+When all map operations are finished, like during scenario startup or after traveling between maps, call `FlushInactiveMapsFromMemory()` to unload the open maps with no `MapLock`s active. That should leave only the current map and any maps with `MapLock`s active.
