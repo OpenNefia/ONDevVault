@@ -2,6 +2,7 @@
   "alwaysUpdateLinks": false,
   "spellcheck": true,
   "spellcheckDictionary": [
-    "composability"
+    "composability",
+    "declaratively"
   ]
 }

@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Aspects.md",
+            "file": "Spells.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Aspects.md",
+                "file": "Spells.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,15 +88,15 @@
   },
   "active": "2bcb9e4a83347db8",
   "lastOpenFiles": [
-    "Aspects.md",
-    "Effects.md",
-    "Lua.md",
-    "Stats.md",
     "Spells.md",
+    "Maps.md",
+    "Map Objects.md",
+    "Lua.md",
+    "OpenNefia-LÖVE.md",
+    "Philosophy.md",
     "Research/Nested Object Containers/Smoke Tests.md",
+    "Research/Nested Object Containers/Rimworld.md",
     "Research/Nested Object Containers/CDDA.md",
-    "a dynamic language with no classes.md",
-    "Research/Nested Object Containers/Overview.md",
-    "Research/Nested Object Containers/Rimworld.md"
+    "Aspects.md"
   ]
 }

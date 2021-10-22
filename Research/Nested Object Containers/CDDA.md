@@ -30,7 +30,7 @@ It's worth considering how item amount and charges will affect item weight.
 
 ## How do I get the thing that owns this container? (character, container item, map, etc.)
 
-`item` has an `item_contents`.
+`item` has an `item_contents`. I don't think there's any parenting.
 
 ## How do I get all the objects in this container and its nested containers?
 
@@ -40,11 +40,13 @@ It's worth considering how item amount and charges will affect item weight.
 
 `item_pocket` has `can_contain(item, ignore_fullness)` that returns a `contain_code`:  wrong ammo type, insufficient weight, insufficient space, liquid in non-watertight container, gas in non-airtight container, etc.
 
-The permissions logic is hardcoded for the set of container types (chest, corpse, eBook, magazine, etc).
+The permissions logic is hardcoded for the set of special container types (chest, corpse, eBook, magazine, etc).
 
 There are also a set of `FlagsSetType` for disallowing certain types of items, which are apparently strings.
 
 ## How do I query for a list of objects on a tile?
+
+`map::i_at()` will build a `map_stack` containing the items in the submap indicated by the given position. This is for maps only.
 
 ## How do the parent object(s) get notified when objects have been added/removed?
 
