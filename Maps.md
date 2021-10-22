@@ -20,3 +20,5 @@ There would be some kind of "locking" mechanism to keep certain maps in memory, 
 To accomplish this there would be a `MapLock` that implements `IDisposable`, which would be freed in the finalizer when the containing object is garbage collected. This would be a reference counting mechanism. When a tracked map has no `MapLock`s referencing it, that means it's safe to unload from memory.
 
 `MapLock`s will also have to be serialized correctly for this to work.
+
+When all map operations are finished, like during scenario startup or after traveling between maps, call `FlushMapsFromMemory()` to unload the open maps with no `MapLock`s active.
