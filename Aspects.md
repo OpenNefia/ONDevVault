@@ -234,7 +234,7 @@ if (chara.HasTrait(TraitDefOf.EtherPoison))
 	// Exclude Poison and PotionOfCureCorruption
 	var isPoisonablePotion = item.Def.GetExtendedData<ElonaItemExtData>()?.IsPoisonablePotion ?? true;
 	
-	if (item.HasCategory(ItemCatDefOf.Drink) && isPoisonablePotion) 
+	if (item.HasCategory(ItemCategoryDefOf.Drink) && isPoisonablePotion) 
 	{
 		item.ChangeDefTo(ItemDefOf.PotionPoison);
 		
