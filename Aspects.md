@@ -223,7 +223,10 @@ Patch `PostObtain(Chara, MapObject)` to check for potions.
 ```csharp
 if (chara.HasTrait(TraitDefOf.EtherPoison))
 {
-	if (item.HasCategory(ItemCatDefOf.Drink) && CanPoisonPotion(item)) 
+	// Exclude Poison and PotionOfCureCorruption
+	var isPoisonablePotion = item.Def.GetExtendedData<ElonaItemExtData>()?.IsPoisonablePotion ?? true;
+	
+	if (item.HasCategory(ItemCatDefOf.Drink) && isPoisonablePotion) 
 	{
 		item.ChangeDefTo(ItemDefOf.PotionPoison);
 		
