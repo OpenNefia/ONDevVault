@@ -89,14 +89,14 @@
   "active": "2a31824f29c32081",
   "lastOpenFiles": [
     "Game Data Overview.md",
-    "Defs.md",
-    "Areas.md",
     "Maps.md",
     "OpenNefia-LÖVE.md",
     "Map Objects.md",
     "Philosophy.md",
     "Aspects.md",
     "Buffs and Hexes.md",
-    "Stats.md"
+    "Defs.md",
+    "Stats.md",
+    "Spells.md"
   ]
 }
