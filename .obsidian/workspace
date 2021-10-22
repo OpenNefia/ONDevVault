@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Maps.md",
+            "file": "Design Overview.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Maps.md",
+                "file": "Design Overview.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,6 +88,7 @@
   },
   "active": "2a31824f29c32081",
   "lastOpenFiles": [
+    "Design Overview.md",
     "Maps.md",
     "OpenNefia-LÖVE.md",
     "Map Objects.md",
@@ -96,7 +97,6 @@
     "Buffs and Hexes.md",
     "Defs.md",
     "Stats.md",
-    "Spells.md",
-    "UiLayers.md"
+    "Spells.md"
   ]
 }
