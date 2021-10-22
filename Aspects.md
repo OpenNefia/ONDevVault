@@ -230,7 +230,7 @@ if (chara.HasTrait(TraitDefOf.EtherPoison))
 	{
 		item.ChangeDefTo(ItemDefOf.PotionPoison);
 		
-		var potions = item.GetAspects<PotionAspect>();
+		var potions = item.EnumerateAspectsRecursive<PotionAspect>();
 
 		foreach ( var potion in potions )
 		{
