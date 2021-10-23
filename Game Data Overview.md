@@ -19,5 +19,3 @@ An [[Aspects|Aspect]] is a piece of data that is parented to an active Map Objec
 An [[Effects|Effect]] is a piece of reusable logic that can be run on a {character/Map Object}(?). It is not attached to any active game state and can be serialized and deserialized directly. Effects can be passed parameters inside their definitions to change their behavior in a declarative way. An Effect could be used as an item use action, the logic run when an elemental attack damages a tile on the map, damage triggered by opening a door, and so on.
 
 The difference between Aspects and Effects is that Effects do not need an active Map Object parent, and Effects should not act as owners of Aspects or Map Objects. Effects can be defined inside [[Defs]] in a standalone fashion, and then called like a function without any extra instantiation. Effects are more like serializable first-class functions with additional parameters that can be tweaked, and a single `Apply()` method that acts like calling the function.
-
-The intention with this system is 
