@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Game Data Overview.md",
+            "file": "Aspects.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Game Data Overview.md",
+                "file": "Aspects.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,12 +88,12 @@
   },
   "active": "2a31824f29c32081",
   "lastOpenFiles": [
+    "Aspects.md",
     "Game Data Overview.md",
     "Maps.md",
     "OpenNefia-LÖVE.md",
     "Map Objects.md",
     "Philosophy.md",
-    "Aspects.md",
     "Buffs and Hexes.md",
     "Defs.md",
     "Stats.md",
