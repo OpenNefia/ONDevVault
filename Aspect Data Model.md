@@ -20,12 +20,27 @@ So why would we need to add arbitrary components at runtime?
 1. Dynamic object behaviors. Like a puddle that accepts any number of `ICanDrinkAspect` components and runs the `OnDrink()` callback for each.
 2. Granting a specific object special powers, but only for that specific instance. Something like allowing an object to be counted as valuable for house/museum points.
 
-I have to wonder if 1) is unnecessary. All that would be needed is to store a pointer to the [[Defs|Def]] and the aspect type on the object, then instantiate it at runtime. But it sounds like that's using aspects outside of their intended purpose. But at a higher level, is creating such a puddle even necessary in the first place? If all that matters is potion effects, then only potion effects should be a concern.
+I have to wonder if 1) is unnecessary. All that would be needed is to store a pointer to the [[Defs|Def]] and the aspect type on the object, then instantiate it at runtime. But it sounds like that's using aspects outside of their intended purpose. But at a higher level, is creating such a puddle in the most general way possible even necessary in the first place? If all that matters is potion effects, then only potion effects should be a concern for that specific feat.
 
 I can't think of any good examples for 2). That doesn't mean there are none, but I'm not really inventive enough to come up with them.
 
 So maybe this runtime aspects feature is bunk and will only significantly increase complexity. Consider the downsides:
 
-1. Dynamic aspects means that `AspectProperties` requires game data serialization, as well as `Def` serialization.
-2. The list of aspects defined on the object is unlikely to change. What *is* likely to change is its instance data. However, that does not mean all of it is necessary to serialize.
-3. Save data size will signifi
+1. Dynamic aspects means that `AspectProperties` requires game data serialization, as well as `Def` serialization. This feels strange to me.
+2. The list of aspects defined on the object is unlikely to change at runtime, so storing all the aspect data per-object is wasteful.
+3. The size of the save data will significantly increase.
+
+Reducing save data size and keeping things simple is going to lean heavily on using pointers to Defs at every possible turn.
+
+How I might implement the potion puddle:
+
+1. Forget about aspects. The important thing is that the puddle has an effect definition and a power.
+2. Also, forget about needing an aspect to trigger the "drinking" behavior. The entire point of effects is that they can be decoupled and triggered standalone.
+3. Store a pointer to the `EffectDef` and the power on the puddle.
+4. Run the effect when it's stepped on.
+
+Defining `EffectDef` means we now have a stable, well-defined place to store [[Effects]] without having to worry about aspects when dealing with serialization, because *aspects do n*
+
+Also, I am not liking the inheritance approach for feats. I want some kind of component for triggering events when objects are stepped on instead.
+
+When defining an aspect, the important thing is to separate non-serialized definition data from instanced data. In the potion puddle's case, the pointer to the effect def and power are *instance data*. When defining the puddle feat in XML, the effect and power might be specifiable as aspect properties, e.g. *definition data*, but those would be *optional* and merely copied to the instance on creation, since the puddle expects dynamic arguments for those properties.
