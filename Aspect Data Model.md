@@ -18,7 +18,7 @@ But in RimWorld, components still have instance data, and they can have stacking
 So why would we need to add arbitrary components at runtime?
 
 1. Dynamic object behaviors. Like a puddle that accepts any number of `ICanDrinkAspect` components and runs the `OnDrink()` callback for each.
-2. Granting a specific object special powers, but only for that specific instance. Something like allowing an object to be counted as valuable for house/museum points.
+2. Granting a specific object special powers, but only for that specific object instance. Something like allowing an object to be counted as valuable for house/museum points.
 
 I have to wonder if 1) is really necessary. All that would be needed is to store a pointer to the [[Defs|Def]] and the aspect type on the object, then instantiate it at runtime. But it sounds like that's using aspects outside of their intended purpose. And at a higher level, is creating such a puddle in the most general way possible even necessary in the first place? If all that matters is potion effects, then only potion effects should be a concern for that specific feat.
 
