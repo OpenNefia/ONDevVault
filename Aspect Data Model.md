@@ -41,7 +41,7 @@ How I might implement the potion puddle:
 
 Defining `EffectDef` means we now have a stable, well-defined place to store serializable pointers to [[Effects]] without having to worry about aspects when dealing with serialization, because *aspects do not play well with serialization*, and *aspects are not dynamic, they are static*.
 
-Also, I am not liking the inheritance approach for feats. I want some kind of component for triggering events when objects are stepped on instead.
+Also, I am not liking the inheritance approach for feats. I want some kind of component for triggering events when map objects are stepped on instead.
 
 When defining an aspect, the important thing is to separate non-serialized, static definition data from the dynamic, instanced data. In the potion puddle's case, the pointer to the `EffectDef` and power are *instance data*. When defining the puddle feat in XML, the effect and power might be specifiable inside `AspectProperties`, e.g. *definition data*, but those would be *optional* and merely copied to the instance on creation, since the puddle expects dynamic arguments for those properties.
 
