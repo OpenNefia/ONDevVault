@@ -48,8 +48,10 @@ When defining an aspect, the important thing is to separate non-serialized, stat
 How I might implement corpses:
 
 1. Corpses have a `CorpseAspect` that handles the eating behavior.
-2. They also have an `ItemFromChara` aspect holding the `CharaDef` pointer. This is useful for providing a generic interface for grabbing what character an item was harvested from, for corpses, remains, figures, cards, etc.
+2. They also have an `ItemFromCharaAspect` holding the `CharaDef` pointer. This is useful for providing a generic interface for grabbing what character an item was harvested from, for corpses, remains, figures, cards, etc.
 
 The problem is: what if someone wants to treat the static data as dynamic data for the purpose of modding? As in, a corpse that acts like a vegetable instead of meat? [[OpenNefia-LÖVE]] allows this by treating everything as dynamic and blatantly duplicating all the definition data.
 
 I thought we decided that wasn't a good idea.
+
+ But for that example they could just create a new item definition entirely, give it a `CorpseAspect` and `ItemFromCharaAspect`, set the food type to a vegetable, and swap out the def when spawning the corpse.
