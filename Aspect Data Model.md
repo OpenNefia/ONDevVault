@@ -24,9 +24,9 @@ I have to wonder if 1) is unnecessary. All that would be needed is to store a po
 
 I can't think of any good examples for 2). That doesn't mean there are none, but I'm not really inventive enough to come up with them.
 
-So maybe this runtime aspects feature is bunk and will only significantly increase complexity. Consider the downsides:
+So maybe this runtime aspects feature is bunk and will only significantly increase complexity. Consider the deficiencies:
 
-1. Dynamic aspects means that `AspectProperties` requires game data serialization, as well as `Def` serialization. This feels strange to me.
+1. Dynamic aspects means that `AspectProperties` now requires game data serialization as well as `Def` serialization. This feels strange to me.
 2. The list of aspects defined on the object is unlikely to change at runtime, so storing all the aspect data per-object is wasteful.
 3. The size of the save data will significantly increase.
 
@@ -39,8 +39,13 @@ How I might implement the potion puddle:
 3. Store a pointer to the `EffectDef` and the power on the puddle.
 4. Run the effect when it's stepped on.
 
-Defining `EffectDef` means we now have a stable, well-defined place to store [[Effects]] without having to worry about aspects when dealing with serialization, because *aspects do n*
+Defining `EffectDef` means we now have a stable, well-defined place to store serializable pointers to [[Effects]] without having to worry about aspects when dealing with serialization, because *aspects do not play well with serialization*, and *aspects are not dynamic, they are static*.
 
 Also, I am not liking the inheritance approach for feats. I want some kind of component for triggering events when objects are stepped on instead.
 
-When defining an aspect, the important thing is to separate non-serialized definition data from instanced data. In the potion puddle's case, the pointer to the effect def and power are *instance data*. When defining the puddle feat in XML, the effect and power might be specifiable as aspect properties, e.g. *definition data*, but those would be *optional* and merely copied to the instance on creation, since the puddle expects dynamic arguments for those properties.
+When defining an aspect, the important thing is to separate non-serialized, static definition data from the dynamic, instanced data. In the potion puddle's case, the pointer to the `EffectDef` and power are *instance data*. When defining the puddle feat in XML, the effect and power might be specifiable inside `AspectProperties`, e.g. *definition data*, but those would be *optional* and merely copied to the instance on creation, since the puddle expects dynamic arguments for those properties.
+
+How I might implement corpses:
+
+1. Corpses have a `CorpseAspect` that handles the eating behavior.
+2. They also have an `ItemFromChara` aspect holding the `CharaDef` pointer. This is useful for providing a generic interface for grabbing what character an item was harvested from, for corpses, remains, figures, cards, etc.
