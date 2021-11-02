@@ -28,7 +28,7 @@ So maybe this runtime aspects feature is bunk and will only significantly increa
 
 1. Dynamic aspects means that `AspectProperties` now requires game data serialization as well as `Def` serialization. This feels strange to me.
 2. The list of aspects defined on the object is unlikely to change at runtime, so storing all the aspect data per-object is wasteful.
-3. The size of the save data will significantly increase.
+3. The size of the save data will significantly (?) increase.
 
 Reducing save data size and keeping things simple is going to lean heavily on using pointers to Defs at every possible turn.
 
