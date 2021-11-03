@@ -16,7 +16,7 @@ In [[OpenNefia-LÖVE]], lists of text were specified as a successive sequence of
       },
 ```
 
-Probably shouldn't do this. Instead allow translations to just specify a key that points to a list of text.
+Probably shouldn't do this, because translations might require more or less lines for the final text. Instead allow translations to just specify a key that points to a list of text.
 
 ```lua
       quest_dialog = {
