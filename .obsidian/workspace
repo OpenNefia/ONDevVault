@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Serialization.md",
+            "file": "Maps.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Serialization.md",
+                "file": "Maps.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,15 +88,15 @@
   },
   "active": "2a31824f29c32081",
   "lastOpenFiles": [
+    "Maps.md",
+    "OpenNefia-LÖVE.md",
+    "Philosophy.md",
     "Serialization.md",
     "Dialog.md",
     "Effects.md",
     "Game Data Overview.md",
     "Aspect Data Model.md",
     "Areas.md",
-    "UI Localization.md",
-    "Stats.md",
-    "UiLayers.md",
-    "Localization.md"
+    "UI Localization.md"
   ]
 }

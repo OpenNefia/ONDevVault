@@ -13,12 +13,15 @@ assert(map1 == map2) -- fails
 
 In OpenNefia.NET, there will be some kind of global store that will manage maps. Maps will not be saved or loaded individually anymore, only when they're being managed as part of a game save. A map can still be instantiated as a standalone object, but it cannot be set as the active map until the map storage is tracking it.
 
-## Multiple Loaded Maps
+## Map Transactions
 
-There would be some kind of "locking" mechanism to keep certain maps in memory, instead of having them released automatically when transitioning between maps. The set of active map UIDs would be serialized as part of the save. This would allow stepping the turn sequence for more than one map simultaneously.
+For simplicity's sake, editing a map that isn't the current one could be handled with a "transaction" system.
 
-To accomplish this there would be a `MapLock` that implements `IDisposable`, which would be freed in the finalizer when the containing object is garbage collected. This would be a reference counting mechanism. When a tracked map has no `MapLock`s referencing it, that means it's safe to unload from memory.
+You can specify a closure with logic to run on the loaded map, and the map is modified and saved back to disk in a single transaction.
 
-`MapLock`s will also have to be serialized correctly for this to work.
+```csharp
+var mapId = 14;
+MapLoader.EditMap(mapId, (map) => map.Clear(TileDefOf.Grass));
+```
 
-When all map operations are finished, like during scenario startup or after traveling between maps, call `FlushInactiveMapsFromMemory()` to unload the open maps with no `MapLock`s active. That should leave only the current map and any maps with `MapLock`s active.
+This would take care of multiple concurrent mutations, where the map currently being edited in memory is passed by `MapLoader` if `EditMap` is inadvertently called twice on the same map.
