@@ -56,9 +56,10 @@ Should we have it or not? To what extent should it be used?
 
 ### Benefits
 
-1. Ease of mapping from a translation file to the C# namespace it concerns.
-2. Per-mod separation of translations to avoid collisions, without needing to manually prefix everything. At some point, you will *need* to prefix things, whether or not the engine takes care of it for you.
-3. Allows for [[UI Localization]] by mapping the namespace/type name of the class to the localization namespace.
+1. Much easier to read through related groups of translated strings/functions.
+2. Ease of mapping from a translation file to the C# namespace it concerns.
+3. Per-mod separation of translations to avoid collisions, without needing to manually prefix everything. At some point, you will *need* to prefix things, whether or not the engine takes care of it for you.
+4. Allows for [[UI Localization]] by mapping the namespace/type name of the class to the localization namespace.
 
 ### Drawbacks
 
