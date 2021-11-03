@@ -54,4 +54,4 @@ The problem is: what if someone wants to treat the static data as dynamic data f
 
 I thought we decided that wasn't a good idea.
 
- But for that example they could just create a new item definition entirely, give it a `CorpseAspect` and `ItemFromCharaAspect`, set the food type to a vegetable, and swap out the def when spawning the corpse.
+But for that example they could just create a new item definition entirely, give it a `CorpseAspect` and `ItemFromCharaAspect`, set the food type to a vegetable, and then swap out the def when spawning the corpse.

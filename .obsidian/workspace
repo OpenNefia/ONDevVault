@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Localization.md",
+            "file": "Aspect Data Model.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Localization.md",
+                "file": "Aspect Data Model.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,15 +88,15 @@
   },
   "active": "2a31824f29c32081",
   "lastOpenFiles": [
+    "Aspect Data Model.md",
+    "Areas.md",
+    "Game Data Overview.md",
+    "UI Localization.md",
+    "Stats.md",
+    "UiLayers.md",
     "Localization.md",
     "Maps.md",
-    "UI Localization.md",
     "Lua.md",
-    "Dialog.md",
-    "Aspect Data Model.md",
-    "Game Data Overview.md",
-    "Defs.md",
-    "Areas.md",
-    "OpenNefia-LÖVE.md"
+    "Dialog.md"
   ]
 }

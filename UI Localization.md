@@ -120,4 +120,4 @@ We shouldn't have to allocate a bunch of localized strings/functions at startup 
 
 It's just that if we *know* we need an `IUiText` somewhere as an instance variable, we might as well provide a way for the translation system to hook into that component.
 
-The value add of this system is diminished significantly if you just use it for `string`s that aren't touched at a rate of 60 frames per second.
+The value add of this system is diminished significantly if you just use it for `string`s that aren't going to be touched at a rate of 60 frames per second.
