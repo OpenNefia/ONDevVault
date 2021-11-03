@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Dialog.md",
+            "file": "Serialization.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Dialog.md",
+                "file": "Serialization.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,6 +88,7 @@
   },
   "active": "2a31824f29c32081",
   "lastOpenFiles": [
+    "Serialization.md",
     "Dialog.md",
     "Effects.md",
     "Game Data Overview.md",
@@ -96,7 +97,6 @@
     "UI Localization.md",
     "Stats.md",
     "UiLayers.md",
-    "Localization.md",
-    "Maps.md"
+    "Localization.md"
   ]
 }
