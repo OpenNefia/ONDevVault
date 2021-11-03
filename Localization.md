@@ -23,7 +23,8 @@ This is the way we used to do it, and the crucial thing is that *it worked.*
 1. Too general-purpose. People would be able to mess with the marshalled C# objects from the script side.
 2. Lua objects need to be munged into the correct datastructures on the C# side, instead of being able to store them directly.
 3. Not as straightforward for non-programmers to use.
-4. It's possible for script functions to throw errors.
+4. Somewhat annoying to reference other translations from within a localization function.
+5. It's possible for script functions to throw errors.
 
 ### Fluent
 
@@ -35,7 +36,8 @@ Localization system developed by Mozilla. Has at least two .NET implementations:
 2. Easier syntax for translators to work with. 
 3. No possibility for runtime errors except for the built-in/bound functions.
 4. Can easily validate the translation files.
-5. It describes itself as a proper localization system that solves the problems I'm having with pronouns/etc., so maybe I feel better about myself for using it instead of trying to glom something weird onto Lua...?
+5. Can easily reference other translation keys within a message.
+6. It describes itself as a proper localization system that solves the problems I'm having with pronouns/etc., so maybe I feel better about myself for using it instead of trying to glom something weird onto Lua...?
 
 #### Drawbacks
 
@@ -86,3 +88,11 @@ var text = I18N.Get(typeof(TargetText), "YouAreTargeting");
 ```
 
 I don't know about the performance of this.
+
+Alternatively, we could give up on a 1:1 namespace mapping for static classes.
+
+```csharp
+var text = I18N.Get("Core:TargetText.YouAreTargeting");
+```
+
+2. It's annoying to reference locale keys outside the class they are namespaced under. Why are we assuming a single translation will only ever be used in a single class?
