@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Aspect Data Model.md",
+            "file": "Dialog.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Aspect Data Model.md",
+                "file": "Dialog.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,6 +88,8 @@
   },
   "active": "2a31824f29c32081",
   "lastOpenFiles": [
+    "Dialog.md",
+    "Localization.md",
     "Aspect Data Model.md",
     "Game Data Overview.md",
     "Defs.md",
@@ -95,8 +97,6 @@
     "Maps.md",
     "OpenNefia-LÖVE.md",
     "Map Objects.md",
-    "Philosophy.md",
-    "Aspects.md",
-    "Buffs and Hexes.md"
+    "Philosophy.md"
   ]
 }
