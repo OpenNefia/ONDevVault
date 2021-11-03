@@ -25,3 +25,5 @@ MapLoader.EditMap(mapId, (map) => map.Clear(TileDefOf.Grass));
 ```
 
 This would take care of multiple concurrent mutations, where the map currently being edited in memory is passed by `MapLoader` if `EditMap` is inadvertently called twice on the same map.
+
+Then you could call `MapLoader.FlushPendingTransactions()` at some point to run all the closures in sequence.
