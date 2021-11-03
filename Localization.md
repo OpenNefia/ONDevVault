@@ -15,8 +15,9 @@ This is the way we used to do it, and the crucial thing is that *it worked.*
 
 #### Benefits
 
-1. Metatables allow us to develop a pseudo-DSL for specifying namespaces.
-2. Flexible enough to allow for any sort of necessary logic with plain Lua functions.
+1. Ability to nest translation keys in a structured, fairly intuitive way.
+2. Metatables allow us to develop a pseudo-DSL for specifying namespaces.
+3. Flexible enough to allow for any sort of necessary logic with plain Lua functions.
 
 #### Drawbacks
 
