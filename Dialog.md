@@ -18,3 +18,13 @@ In [[OpenNefia-LÖVE]], lists of text were specified as a successive sequence of
 
 Probably shouldn't do this. Instead allow translations to just specify a key that points to a list of text.
 
+```lua
+      quest_dialog = {
+         text = {
+            "talk.unique.renton.quest.dialog"
+         },
+         choices = {
+            {"quest_check", "ui.more"},
+         },
+      },
+```
