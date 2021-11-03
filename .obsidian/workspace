@@ -89,14 +89,14 @@
   "active": "2a31824f29c32081",
   "lastOpenFiles": [
     "Localization.md",
+    "Maps.md",
+    "UI Localization.md",
     "Lua.md",
     "Dialog.md",
     "Aspect Data Model.md",
     "Game Data Overview.md",
     "Defs.md",
     "Areas.md",
-    "Maps.md",
-    "OpenNefia-LÖVE.md",
-    "Map Objects.md"
+    "OpenNefia-LÖVE.md"
   ]
 }
