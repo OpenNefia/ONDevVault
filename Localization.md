@@ -21,7 +21,7 @@ This is the way we used to do it, and the crucial thing is that *it worked.*
 
 #### Drawbacks
 
-1. Too general-purpose. People would be able to mess with the marshalled C# objects from the script side.
+1. Too general-purpose. People would be able to mess with the C# objects passed to the Lua side.
 2. Lua objects need to be munged into the correct datastructures on the C# side, instead of being able to store them directly.
 3. Not as straightforward for non-programmers to use.
 4. Somewhat annoying to reference other translations from within a localization function.
