@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Buffs and Hexes.md",
+            "file": "Comparison of Declarative Languages.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Buffs and Hexes.md",
+                "file": "Comparison of Declarative Languages.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,6 +88,7 @@
   },
   "active": "2a31824f29c32081",
   "lastOpenFiles": [
+    "Comparison of Declarative Languages.md",
     "Buffs and Hexes.md",
     "Variants/Vanilla/Overview.md",
     "Defs.md",
@@ -96,7 +97,6 @@
     "Research/Nested Object Containers/Rimworld.md",
     "Variants/oomSEST/Overview.md",
     "Aspects.md",
-    "Game Data Overview.md",
-    "Maps.md"
+    "Game Data Overview.md"
   ]
 }
