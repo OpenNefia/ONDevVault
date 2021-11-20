@@ -13,6 +13,17 @@
             "mode": "source"
           }
         }
+      },
+      {
+        "id": "ac5fdb6246db9f05",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "conflict-files-obsidian-git.md",
+            "mode": "source"
+          }
+        }
       }
     ],
     "direction": "vertical"
@@ -68,7 +79,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Defs.md",
+                "file": "conflict-files-obsidian-git.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -86,8 +97,9 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "2a31824f29c32081",
+  "active": "ac5fdb6246db9f05",
   "lastOpenFiles": [
+    "conflict-files-obsidian-git.md",
     "Defs.md",
     "Buffs and Hexes.md",
     "Research/Nested Object Containers/CDDA.md",
@@ -96,7 +108,6 @@
     "Aspects.md",
     "Game Data Overview.md",
     "Maps.md",
-    "OpenNefia-LÖVE.md",
-    "Map Objects.md"
+    "OpenNefia-LÖVE.md"
   ]
 }
