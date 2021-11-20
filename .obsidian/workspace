@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Aspects.md",
+            "file": "Defs.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Aspects.md",
+                "file": "Defs.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,15 +88,15 @@
   },
   "active": "2a31824f29c32081",
   "lastOpenFiles": [
+    "Defs.md",
+    "Buffs and Hexes.md",
+    "Research/Nested Object Containers/CDDA.md",
+    "Research/Nested Object Containers/Rimworld.md",
+    "Variants/oomSEST/Overview.md",
     "Aspects.md",
     "Game Data Overview.md",
     "Maps.md",
     "OpenNefia-LÖVE.md",
-    "Map Objects.md",
-    "Philosophy.md",
-    "Buffs and Hexes.md",
-    "Defs.md",
-    "Stats.md",
-    "Spells.md"
+    "Map Objects.md"
   ]
 }
