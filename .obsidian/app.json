@@ -4,5 +4,6 @@
   "spellcheckDictionary": [
     "composability",
     "declaratively"
-  ]
+  ],
+  "promptDelete": false
 }

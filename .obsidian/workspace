@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Comparison of Declarative Languages.md",
+            "file": "Effects.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Comparison of Declarative Languages.md",
+                "file": "Effects.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,15 +88,15 @@
   },
   "active": "2a31824f29c32081",
   "lastOpenFiles": [
+    "Effects.md",
+    "Localization.md",
+    "Lua.md",
+    "Aspects.md",
     "Comparison of Declarative Languages.md",
     "Buffs and Hexes.md",
     "Variants/Vanilla/Overview.md",
     "Defs.md",
     "conflict-files-obsidian-git.md",
-    "Research/Nested Object Containers/CDDA.md",
-    "Research/Nested Object Containers/Rimworld.md",
-    "Variants/oomSEST/Overview.md",
-    "Aspects.md",
-    "Game Data Overview.md"
+    "Research/Nested Object Containers/CDDA.md"
   ]
 }
